@@ -1,0 +1,46 @@
+{% extends 'corpo.html' %}
+{%load static%}
+{%block info%}
+<div id="breadcrumb">
+    <p>SEFIV/<a>Login</a></p>
+    </div>
+
+<div id="login">
+    <div class="login_main">
+        <div class ='login_logo'>
+            <h2>BEM VINDO AO SEVIF</h2>
+            
+            <h1>SISTEMA ELEITORAL & VOTAÇÃO DO IFRN</h1>
+
+            <img src="{% static 'img/login/logo.svg'%}"/>
+
+        </div>
+        <div class ='login_division'>
+            <h1>Bem vinda(o) usuária(o)</h1>
+            <h2>Faça seu login aqui em baixo</h2>
+            <div class="login_user_info">
+                <form>
+                    <label for="name">Username:</label><br>
+                    <input type="name" name="name" id="name"><br>
+    
+
+                    <label for="password">Password:</label><br>
+                    <input type="password" name="password" id="password">
+                </form>
+            </div>
+
+            <div class="login_user_buttons">
+                <div><p>Confitme aqui</p><button>Log in</button></div>
+                <div><p>Não está cadastrado ainda?</p><button>Cadastre-se aqui</button></div>
+            </div>
+
+            <div class="login_user_acess">
+                <a class="hover">clique aqui</a> para acessar pela conta do SUAP</a><br><br>
+                <a class="hover">clique aqui</a> para acessar pela conta do GOOGLE</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{%endblock%}

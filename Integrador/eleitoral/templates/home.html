@@ -1,0 +1,106 @@
+{% extends 'corpo.html' %}
+{%load static%}
+
+{%block info%}
+<div id="breadcrumb">
+        <p>SEFIV/<a>Home</a></p>
+        </div>
+
+    <div class="main_home">
+       
+
+            <head>
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400" rel="stylesheet">
+            </head>
+            <body>
+            <div class="container">
+                <div class="card">
+                <h4 class="title">Proposta #1011</h4>
+                <h3 class ="sub-title">Farda Campus</h3>
+                <div class="bar">
+                    <div class="emptybar"></div>
+                    <div class="filledbar"></div>
+                </div>
+                <div class="circle">
+                    <img src="{% static 'img/home/info1.bmp' %}"><br>
+                    <button class="report">Reportar</button>
+                    <button class="votar">Votar</button>
+                </div>
+                </div>
+                <div class="card">
+                <h4 class="title">Proposta #1100</h4>
+                <h3 class ="sub-title">E-Titulo</h3>
+                <div class="bar">
+
+                    <div class="emptybar"></div>
+                    <div class="filledbar"></div>
+                </div>
+                <div class="circle">
+                    <img src="{% static 'img/home/info1.bmp' %}"><br>
+                    <button class="report">Reportar</button>
+                    <button class="votar">Votar</button>
+                </div>
+                </div>
+                <div class="card">
+                <h4 class="title">Proposta #1101</h4>
+                <h3 class ="sub-title">É O LULA</h3>
+                <div class="bar">
+                    <div class="emptybar"></div>
+                    <div class="filledbar"></div>
+                </div>
+                <div class="circle">
+                    <img src="{% static 'img/home/info1.bmp' %}"><br>
+                    <button class="report">Reportar</button>
+                    <button class="votar">Votar</button>
+                </div>
+                </div>
+                <div class="card">
+                <h3 class="title">Proposta #1110</h3>
+                <h3 class ="sub-title">Portas Eletronicas</h3>
+                <div class="bar">
+                    <div class="emptybar"></div>
+                    <div class="filledbar"></div>
+                </div>
+                <div class="circle">
+                    <img src="{% static 'img/home/info1.bmp' %}"><br>
+                    <button class="report">Reportar</button>
+                    <button class="votar">Votar</button>
+                </div>
+                </div>
+                <div class="card">
+                    <h3 class="title">Proposta #1111</h3>
+                    <h3 class ="sub-title">Troca de Horario</h3>
+                    <div class="bar">
+                        <div class="emptybar"></div>
+                        <div class="filledbar"></div>
+                    </div>
+                    <div class="circle">
+                        <img src="{% static 'img/home/info1.bmp' %}"><br>
+                        <button class="report">Reportar</button>
+                        <button class="votar">Votar</button>
+                    </div>
+                    </div>
+            </div>
+            </body>
+
+
+
+</div>
+{%endblock%}
+
+
+<!--{% if suario_logado == true %}
+    <h1>Usuário logado</h1>
+{% else %}
+    <h1>Deslogado</h1>
+{% endif %}
+{% for x in lista %}
+{{forloop.counter}}
+{{forloop.counter0}}
+    <h2>{{x}}</h2>
+{% empty%}
+<h1>Não há nem um usuário cadastrado</h1>
+{% endfor %}-->
+
+<!--
+    

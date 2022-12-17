@@ -1,0 +1,76 @@
+{%extends 'corpo.html'%}
+{%load static%}
+
+{%block info%}
+<div id="breadcrumb">
+    <p>SEFIV/<a>Register</a></p>
+</div>
+
+<div id="user_register">
+    <div class="register_main">
+        <div class ='register_logo'>
+            <h2>SEVIF</h2>
+            
+            <h1>SISTEMA ELEITORAL & VOTAÇÃO DO IFRN</h1>
+
+            <img src="{% static 'img/login/logo.svg'%}"/>
+
+        </div>
+        <div class ='login_division'>
+            <h1>Cadastre-se aqui</h1>
+            <h2>Preencha suas informações a baixo</h2>
+            <div class="login_user_info">
+                <form>
+                    <label for="cpf">CPF:</label><br>
+                    <input type="cpf" name="cpf" id="cpf"> 
+    
+                </form>
+                <form>
+                    <label for="id_academico">ID Academico:</label><br>
+                    <input type="id_academico" name="id_academico" id="id_academico"> 
+    
+                </form>
+                <form>
+                    <label for="nome">Nome:</label><br>
+                    <input type="nome" name="nome" id="nome"> 
+    
+                </form>
+                <form>
+                    <label for="sobrenome">Sobrenome:</label><br>
+                    <input type="sobrenome" name="sobrenome" id="sobrenome"> 
+    
+                </form>
+                <form>
+                    <label for="username">Username:</label><br>
+                    <input type="username" name="username" id="username"> 
+    
+                </form>
+                <form>
+                    <label for="email">e-mail:</label><br>
+                    <input type="email" name="email" id="email"> 
+    
+                </form>
+                <form>
+                    <label for="password">Password:</label><br>
+                    <input type="password" name="password" id="password">
+                </form>
+                <form>
+                    <label for="password">Repita-Password:</label><br>
+                    <input type="password" name="password" id="password">
+                </form>
+            </div>
+
+            <div class="login_user_buttons">
+                <div><p>Confitme aqui</p><button>Confirm Register</button></div>
+
+            </div>
+
+
+
+    </div>
+
+</div>
+
+
+
+{%endblock%}

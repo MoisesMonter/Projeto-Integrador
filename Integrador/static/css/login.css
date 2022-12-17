@@ -1,0 +1,82 @@
+
+a{ color: inherit; 
+    text-decoration: none;} 
+
+#login{
+
+    display: flex;
+    flex-direction:row;
+    justify-items: auto;
+    align-items: center;
+}
+.login_main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+    width: 1300px;
+    height: 400px;
+    height: auto;
+    background-color:#232323;
+    border-radius: 10px;
+    border: solid gray 2px ;
+    margin: 10%;
+    padding-top: 5%;
+    padding-bottom: 8%;
+
+}
+
+.login_logo{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0px;
+    padding-right:160px;
+
+}
+
+div.login_logo img{
+    width: 150px;
+    height: 200px;
+}
+.login_division{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-left: 160px;
+    padding-right: 0px;
+
+}
+
+.login_user_info{
+    font-size: 15px;
+}
+
+.login_user_buttons{
+    display: flex;
+    flex-direction: row;
+}
+.login_user_buttons div{
+    display: block;
+    flex-direction: row;
+    margin: 10px;
+}
+.login_user_buttons p{
+    font-size: 10px;
+    margin: 5px;
+}
+.login_user_buttons button:hover{
+    cursor:pointer;
+}
+.login_user_acess{
+    display: block;
+    font-size: small;
+}
+.login_user_acess a.hover{
+    color: rgb(160, 160, 160);
+}
+div.login_user_acess a.hover :hover{
+    cursor:pointer;
+}

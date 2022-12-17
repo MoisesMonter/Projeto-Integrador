@@ -1,0 +1,50 @@
+div#breadcrumb P{
+    padding-top: 10px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+div#breadcrumb a:hover{
+    cursor: pointer;
+}
+.main_suport {
+    position:relative;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+
+    justify-content: center;
+
+    border:none;
+    
+}
+.main_suport div#ambiente{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0px;
+    background:#232323;
+    border-radius: 10px;
+}
+
+.main_suport div#ambiente form{
+    padding-left: 10px;
+    font-size: 10px;
+}
+.main_suport div#ambiente form div.form-row{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.main_suport div#ambiente form div.form-row div{
+    padding: 10px;
+}
+
+.main_suport div#ambiente form .form-group{
+    padding:10px;
+}
+.main_suport button{
+    margin:10px;
+}

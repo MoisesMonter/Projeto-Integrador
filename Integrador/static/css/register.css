@@ -1,0 +1,46 @@
+
+a{ color: inherit; 
+    text-decoration: none;} 
+
+#user_register{
+
+    display: flex;
+    flex-direction:row;
+    justify-items: auto;
+    align-items: center;
+}
+
+.register_main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+    width: 1300px;
+    height: 400px;
+    height: auto;
+    background-color:#232323;
+    border-radius: 10px;
+    border: solid gray 2px ;
+    margin: 10%;
+    padding-top: 5%;
+    padding-bottom: 8%;
+
+}
+
+.register_logo{
+    display:flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    padding-left: 0px;
+    padding-right:160px;
+
+}
+
+div.register_logo img{
+    padding-top: 100px ;
+    width: 150px;
+    height: 200px;
+
+}

@@ -1,0 +1,81 @@
+{% extends 'corpo.html' %}
+{%load static%}
+{%block info%}
+<div id="breadcrumb">
+  <p>SEFIV/<a>Lista de Eleições</a></p>
+  </div>
+
+
+<div id ="listas_eleicoes">
+    <table class="table table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th><p>Nº</p></th>
+            <th><p>Id Customer</p></th>
+            <th><p>Customer Name</p></th>
+            <th><p>City</p></th>
+            <th><p>Order Date</p></th>
+            <th><p>Status</p></th>
+            <th><p>Link</p></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><p>1.</p></th>
+            <td><p>#1111</p></td>
+            <td><p>Jessica Tes</p></td>
+            <td><p>Mossoró</p></td>
+            <td><p>27/SET</p></td>
+            <td class="status_1"><p>Encerrado</p></td>
+            <td><a>Resultado</a></td>
+          </tr>
+    
+          <tr>
+            <th><p>2.</p></th>
+            <td><p>#1110</p></td>
+            <td><p>Jone Copper</p></td>
+            <td><p>Pau dos Ferros</p></td>
+            <td><p>03/OCT</p></td>
+            <td class="status_2"><p>Ativo</p></td>
+            <td><a>Votar</a></td>
+          </tr>
+    
+          <tr>
+            <th><p>3.</p></th>
+            <td><p>#1100</p></td>
+            <td><p>Wade Warren</p></td>
+            <td><p>Natal</p></td>
+            <td><p>02/OCT</p></td>
+            <td class="status_2"><p>Ativo</p></td>
+            <td><a>Votar</a></td>
+          </tr>
+    
+          <tr>
+            <th><p>4.</p></th>
+            <td><p>#1011</p></td>
+            <td><p>Jessica Tess</p></td>
+            <td><p>Mossoró</p></td>
+            <td><p>27/SET</p></td>
+            <td class="status_1"><p>Encerrado</p></td>
+            <td><a>Resultado</a></td>
+          </tr>
+        </tbody>
+        <!--<tfoot class="table-dark">
+          <tr>
+            <th>#id</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Handle</th>
+          </tr>
+        </tfoot>-->
+      </table>
+    
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+      <script src="./assets/js/jquery-3.5.1.slim.min.js"></script>
+      <script src="./assets/js/popper.min.js"></script>
+      <script src="./assets/js/bootstrap.min.js"></script>
+</div>
+
+{%endblock%}
