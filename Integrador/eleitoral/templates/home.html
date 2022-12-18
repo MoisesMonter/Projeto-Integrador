@@ -1,106 +1,252 @@
 {% extends 'corpo.html' %}
 {%load static%}
-
 {%block info%}
 <div id="breadcrumb">
-        <p>SEFIV/<a>Home</a></p>
-        </div>
+    <p>SEFIV/<a>Home</a></p>
+    </div>
 
-    <div class="main_home">
-       
+<div id="home"></div>
 
-            <head>
-                <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400" rel="stylesheet">
-            </head>
-            <body>
-            <div class="container">
-                <div class="card">
-                <h4 class="title">Proposta #1011</h4>
-                <h3 class ="sub-title">Farda Campus</h3>
-                <div class="bar">
-                    <div class="emptybar"></div>
-                    <div class="filledbar"></div>
-                </div>
-                <div class="circle">
-                    <img src="{% static 'img/home/info1.bmp' %}"><br>
-                    <button class="report">Reportar</button>
-                    <button class="votar">Votar</button>
-                </div>
-                </div>
-                <div class="card">
-                <h4 class="title">Proposta #1100</h4>
-                <h3 class ="sub-title">E-Titulo</h3>
-                <div class="bar">
+    <div class="menu_container"> 
+        <h1 class="lista1">Lista de eleições</h1>
+        <div class="listas_scroller">
+          
+          <!--   Group 1 -->
+          
+          <div class="eleitoral_group" id="24h_group-1">
 
-                    <div class="emptybar"></div>
-                    <div class="filledbar"></div>
-                </div>
-                <div class="circle">
-                    <img src="{% static 'img/home/info1.bmp' %}"><br>
-                    <button class="report">Reportar</button>
-                    <button class="votar">Votar</button>
-                </div>
-                </div>
-                <div class="card">
-                <h4 class="title">Proposta #1101</h4>
-                <h3 class ="sub-title">É O LULA</h3>
-                <div class="bar">
-                    <div class="emptybar"></div>
-                    <div class="filledbar"></div>
-                </div>
-                <div class="circle">
-                    <img src="{% static 'img/home/info1.bmp' %}"><br>
-                    <button class="report">Reportar</button>
-                    <button class="votar">Votar</button>
-                </div>
-                </div>
-                <div class="card">
-                <h3 class="title">Proposta #1110</h3>
-                <h3 class ="sub-title">Portas Eletronicas</h3>
-                <div class="bar">
-                    <div class="emptybar"></div>
-                    <div class="filledbar"></div>
-                </div>
-                <div class="circle">
-                    <img src="{% static 'img/home/info1.bmp' %}"><br>
-                    <button class="report">Reportar</button>
-                    <button class="votar">Votar</button>
-                </div>
-                </div>
-                <div class="card">
-                    <h3 class="title">Proposta #1111</h3>
-                    <h3 class ="sub-title">Troca de Horario</h3>
-                    <div class="bar">
-                        <div class="emptybar"></div>
-                        <div class="filledbar"></div>
-                    </div>
-                    <div class="circle">
-                        <img src="{% static 'img/home/info1.bmp' %}"><br>
-                        <button class="report">Reportar</button>
-                        <button class="votar">Votar</button>
-                    </div>
-                    </div>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1641353989082-9b15fa661805?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
             </div>
-            </body>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1642190672487-22bde32965f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1641841344411-49dbd02896f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
 
-
-
-</div>
-{%endblock%}
-
-
-<!--{% if suario_logado == true %}
-    <h1>Usuário logado</h1>
-{% else %}
-    <h1>Deslogado</h1>
-{% endif %}
-{% for x in lista %}
-{{forloop.counter}}
-{{forloop.counter0}}
-    <h2>{{x}}</h2>
-{% empty%}
-<h1>Não há nem um usuário cadastrado</h1>
-{% endfor %}-->
-
-<!--
     
+            <a class="next" href="#24h_group-2" src='.lista1'aria-label="next">
+              <svg>
+                <use href="#next"></use>
+              </svg>
+            </a>
+          </div>
+    
+          <!-- Group 2   -->
+          <div class="eleitoral_group" id="24h_group-2">
+            <a class="previous" href="#24h_group-1" href="#lista1">
+
+              <svg>
+                <use href="#previous"></use>
+              </svg>
+            </a>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1641259041823-e09935369105?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODc2Mw&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODc2Mw&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1641118961077-440391095cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODc2Mw&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+
+
+          </div>
+    
+
+    
+          <div class="navigation-indicators">
+            <div></div>
+            <div></div>
+
+          </div>
+    
+        </div>
+        <h1>Ultimas 24 Horas</h1>
+      </div>
+    
+    
+      <svg>
+        <symbol id="next" viewBox="0 0 256 512">
+          <path fill="white"
+            d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" />
+        </symbol>
+    
+        <symbol id="previous" viewBox="0 0 256 512">
+          <path fill="white"
+            d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z" />
+        </symbol>
+      </svg>
+
+
+    <div class="menu_container">
+        <div class="listas_scroller">
+
+          <!--   Group 1 -->
+          <div class="eleitoral_group" id="docentes_group-1">
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1641353989082-9b15fa661805?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1642190672487-22bde32965f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1641841344411-49dbd02896f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+
+    
+            <a class="next" href="#docentes_group-2" aria-label="next">
+              <svg>
+                <use href="#next"></use>
+              </svg>
+            </a>
+          </div>
+    
+          <!-- Group 2   -->
+          <div class="eleitoral_group" id="docentes_group-2">
+            <a class="previous" href="#docentes_group-1">
+              <svg>
+                <use href="#previous"></use>
+              </svg>
+            </a>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1641259041823-e09935369105?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODc2Mw&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODc2Mw&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1641118961077-440391095cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODc2Mw&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+
+
+          </div>
+
+    
+          <div class="navigation-indicators">
+            <div></div>
+            <div></div>
+          </div>
+    
+        </div>
+        <h1>Docentes</h1>
+      </div>
+    
+    
+      <svg>
+        <symbol id="next" viewBox="0 0 256 512">
+          <path fill="white"
+            d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" />
+        </symbol>
+    
+        <symbol id="previous" viewBox="0 0 256 512">
+          <path fill="white"
+            d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z" />
+        </symbol>
+      </svg>
+
+
+      <div class="menu_container">
+        <div class="listas_scroller">
+    
+          <!--   Group 1 -->
+          <div class="eleitoral_group" id="geral_group-1">
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1641353989082-9b15fa661805?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1642190672487-22bde32965f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1641841344411-49dbd02896f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODcyOA&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+
+    
+            <a class="next" href="#geral_group-2" aria-label="next">
+              <svg>
+                <use href="#next"></use>
+              </svg>
+            </a>
+          </div>
+    
+          <!-- Group 2   -->
+          <div class="eleitoral_group" id="geral_group-2">
+            <a class="previous" href="#geral_group-1">
+              <svg>
+                <use href="#previous"></use>
+              </svg>
+            </a>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1641259041823-e09935369105?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODc2Mw&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODc2Mw&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+            <div class="media-element">
+              <img
+                src="https://images.unsplash.com/photo-1641118961077-440391095cdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzM5ODc2Mw&ixlib=rb-1.2.1&q=80&w=400"
+                alt="">
+            </div>
+
+
+          </div>
+
+    
+          <div class="navigation-indicators">
+            <div></div>
+            <div></div>
+          </div>
+          
+        </div>
+        <h1>Geral</h1>
+
+      </div>
+    
+      <svg>
+        <symbol id="next" viewBox="0 0 256 512">
+          <path fill="white"
+            d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" />
+        </symbol>
+    
+        <symbol id="previous" viewBox="0 0 256 512">
+          <path fill="white"
+            d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z" />
+        </symbol>
+      </svg>
+ 
+{%endblock%}
