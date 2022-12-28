@@ -1,24 +1,30 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-'''from .models import Question'''
+#from .models import Question
 import datetime
 # Create your views here.
 
 def home(request):
-    return render(request,'home.html')
+    x= int(2)
+    return render(request,'home.html',{'x': x})
 
 
 def about_us(request):
-    return render(request,'about_us.html')
+    x= int(2)
+    return render(request,'about_us.html',{'x': x})
 
 def lista_de_eleicoes(request):
-    return render(request,'lista_eleicoes.html')
+    x= int(2)
+    return render(request,'lista_eleicoes.html',{'x': x})
 
 def login(request):
-    return render(request,'login.html')
+    x= int(2)
+    return render(request,'login.html',{'x': x})
 
 def register(request):
-    return render(request,'register.html')
+    x= int(2)
+    return render(request,'register.html',{'x': x})
 
 def suport(request):
-    return render(request,'suport_site.html')
+    x= int(2)
+    return render(request,'suport_site.html',{'x': x})
