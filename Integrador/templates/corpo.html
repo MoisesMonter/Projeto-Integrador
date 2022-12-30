@@ -20,6 +20,146 @@
     {%endblock%}
     <title>SEVIF</title>
 </head>
+
+{%if x == 1 %} <!--logado-->
+
+<body>
+    <div id="navbar_login">
+
+        <div class="header_main">
+        <div class="header_login">
+            <div >
+                <a>Seja bem vindo(a), Nome de Usuário<br><a href="../login">Log Out</a></a>
+            </div>
+
+            <div>
+                <p><!--Buscar--></p>
+            </div>
+            
+        </div>
+        <main>
+            {%block info1%}
+
+            {%endblock%}
+        </main>
+
+        </div>
+        <div class="only_navbar">
+            <div id="list_pressed">
+
+                    <div id="logo">
+                        <li class="logo_press">
+
+                            <p>SEV</p>
+                            <img src="{% static 'img/corpo/logo_ifrn.png'%}"/>
+                        </li>
+                    </div>
+                    <div id="More">
+
+                    <ul>
+                        <li class="More_head"><button id="Moore" ><a>More</a></button></li>
+                        <li class="More"><a href="../home">Home</a><br>
+                                        <a href="../lista_eleicoes">Lista de Eleições</a><br>
+                                        <a href="../lista_eleicoes">Participando</a><br>
+                                        <a href="../login">Gerar uma Eleição</a><br>
+                                        <a href="../about_us">Sobre Nós</a><br>
+                                        <a href="../login">Log Out</a><br>
+                                        </li>
+                    </ul>
+                    </li>
+                    </div>
+                
+
+
+            </div>
+            <div id="list_web">
+            <section class="navbar_login">
+                <ul>
+                    <li class="list_login_logo">
+
+                        <p id="list_login_logo">SEV</p>
+                        <img src="{% static 'img/corpo/logo_ifrn.png'%}"/>
+                    </li>
+                    <li class="list_login">
+                        <div>
+                            <svg width="24" height="24" viewBox="0 0 24 24">
+                                <path d="m13.9971 3.96598c-1.1743-.91464-2.8198-.91464-3.9941 0l-5.00008 3.89446c-.79061.61579-1.25292 1.56188-1.25292 2.56406v7.0453c0 1.795 1.45507 3.25 3.25 3.25h10c1.795 0 3.25-1.455 3.25-3.25v-7.0454c0-1.00208-.4623-1.94817-1.2529-2.56397zm-4.91587-1.18339c1.71627-1.33679 4.12137-1.33679 5.83757 0l5 3.89445c1.1556.90001 1.8312 2.28276 1.8312 3.74736v7.0454c0 2.6234-2.1266 4.75-4.75 4.75h-10c-2.62335 0-4.75-2.1266-4.75-4.75v-7.0453c0-1.4647.67569-2.84745 1.83119-3.74746z" ></path><path d="m8.00006 18c0-.4142.33579-.75.75-.75h6.50004c.4142 0 .75.3358.75.75s-.3358.75-.75.75h-6.50004c-.41421 0-.75-.3358-.75-.75z" ></path>
+                            </svg>
+                        <a href="../home">Home</a></div>
+                    </li>
+                    <li class="list_login"><a href="../lista_eleicoes">Lista de Eleições</a></li>
+                    <li class="list_login"><a href="../lista_eleicoes">Participando</a></li>
+                    <li class="list_login"><a href="../login">Gerar uma Eleição</a></li>
+                    <a> <li class="list_login" ><a  href="../about_us" >Sobre Nós</a></li></a>
+
+                    <br>
+                    </ul>
+                    
+            </section>
+
+            <section class="navbar_login" id ="navbar_login_users" >
+                <ul>
+                    <br>
+                    <li class="list_login">
+                        <a >Nome usuario</a>
+                    </li>
+                    <li class="list_login"><a href=../login>Log Out</a></li>
+                    <br>
+
+                    
+                    </ul>
+                    
+            </section>
+
+            <section class="navbar_login" id ="end_navbar_login">
+                <ul>
+                    <br>
+                    <li class="list_login">
+                        <!--<a href="../admin">Configurações</a></li>-->
+                    <br>
+
+                    
+                    </ul>
+
+            </section>
+            </div>
+        </div > 
+
+            
+
+    </div>  <!--end ID  #navbar_login-->
+
+
+
+
+
+    <footer>
+        <div>
+            <div> 2022 Projeto Integrador em  desenvolvimento,  efetuado por alunos<br>
+                do IFRN campus Pau dos Ferros.<br></div>
+            <div><br> Suporte
+                Reporte um erro de pagina.<br>
+                Informar um problema no sistema<br>
+                Informar um problema no site<br>
+                <a href="../suport_site">Clicando aqui.</a></div>
+            <div> INFORMAÇÕES TÉCNICAS<br><br>
+
+                Servidor:Bololo - 30d3852xxxxx00xx<br>
+                Última extração do SEVIF:21/10/2022<br>
+                Última atualização do SEVIF:10/11/2022 22:56<br>
+                Responsável:Alunos_Integrador/IFRN<br>
+                Feito com Django
+                </div>
+        </div>
+    </footer>
+    
+    </div>
+
+
+</body>
+
+
+{%else %}<!--offline-->
 <body>
     <div id="navbar_login">
 
@@ -34,11 +174,13 @@
             </div>
             
         </div>
-        <main >
-            {%block info%}
-
-            {%endblock%}
+        
+        <main>
+        {%block info%}
+    
+        {%endblock%}
         </main>
+        
 
 
         </div>
@@ -57,13 +199,13 @@
                     <ul>
                         <li class="More_head"><button id="Moore" ><a>More</a></button></li>
                         <li class="More"><a href="../home">Home</a><br>
-                                         <a href="../lista_eleicoes">Lista de Eleições</a><br>
-                                         <a href="../lista_eleicoes">Participando</a><br>
-                                         <a>Gerar uma Eleição</a><br>
-                                         <a href="../about_us">Sobre Nós</a><br>
-                                         <a href="../login">Log in</a><br>
-                                         <a href="../register">Registers</a><br>
-                                         <a>Admin Login</a><br>
+                                        <a href="../lista_eleicoes">Lista de Eleições</a><br>
+                                        <a href="../login">Participando</a><br>
+                                        <a>Gerar uma Eleição</a><br>
+                                        <a href="../about_us">Sobre Nós</a><br>
+                                        <a href="../login">Log in</a><br>
+                                        <a href="../register">Registers</a><br>
+                                        <a>Admin Login</a><br>
                                         </li>
                     </ul>
                     </li>
@@ -77,7 +219,7 @@
                 <ul>
                     <li class="list_login_logo">
 
-                        <p>SEV</p>
+                        <p id="list_login_logo">SEV</p>
                         <img src="{% static 'img/corpo/logo_ifrn.png'%}"/>
                     </li>
                     <li class="list_login">
@@ -88,7 +230,7 @@
                         <a href="../home">Home</a></div>
                     </li>
                     <li class="list_login"><a href="../lista_eleicoes">Lista de Eleições</a></li>
-                    <li class="list_login"><a href="../lista_eleicoes">Participando</a></li>
+                    <li class="list_login"><a href="../login">Participando</a></li>
                     <li class="list_login"><a>Gerar uma Eleição</a></li>
                     <a> <li class="list_login" ><a  href="../about_us" >Sobre Nós</a></li></a>
 
@@ -129,15 +271,15 @@
 
     </div>  <!--end ID  #navbar_login-->
 
- 
+
 
 
 
     <footer>
         <div>
             <div> 2022 Projeto Integrador em  desenvolvimento,  efetuado por alunos<br>
-                do IFRN campus Pau dos Ferros.</div>
-            <div> Suporte
+                do IFRN campus Pau dos Ferros.<br></div>
+            <div><br> Suporte
                 Reporte um erro de pagina.<br>
                 Informar um problema no sistema<br>
                 Informar um problema no site<br>
@@ -157,4 +299,10 @@
 
 
 </body>
+
+
+{%endif%}
+
+
+
 </html>

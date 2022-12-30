@@ -9,178 +9,193 @@ div#breadcrumb a:hover{
 
 a{ color: inherit; 
     text-decoration: none;} 
-
-
+/*Tela Pequena*/
 @media (max-width: 1143px){
-    html{
+        html{
+            
+            margin-top: 0px;
+            font-size: 30px;
+            max-height: 10%;
+            background-color:#0F0E0E;   
+        }
+        body{
+            font-family: Poppins;
+            color:white;
+            display:contents;
+            flex-direction: row;
+            flex-wrap:wrap;
+            list-style-type: none;
+            margin:0px;
+            margin: 0px;
         
-        margin-top: 0px;
-        font-size: 20px;
-        max-height: 10%;
-        background-color:#0F0E0E;   
-    }
-    body{
-        font-family: Poppins;
-        color:white;
-        display:contents;
-        flex-direction: row;
-        flex-wrap:wrap;
-        list-style-type: none;
-        margin:0px;
-        margin: 0px;
+        }
+        ul{
+            margin: 0px;
+            padding: 0px;
+            list-style-type: none;      
     
-    }
-    ul{
-        margin: 0px;
-        padding: 0px;
-        list-style-type: none;      
-
-    }
-    #list_web{
-        display:none;
-    }
-
-    #navbar_login{
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: flex-start;
-        flex-wrap: nowrap;
-        list-style-type: none;
-        margin-bottom: 90px;
-    }
-
-
-    div.header_login{
-        display: none;
-        align-items: center;
-    }
-
-
-    div#list_pressed{
-        padding-top: 7px;
-        display:flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content:flex-start;
-        background-color: #020202;
-        height: 30px;
+        }
+        #list_web{
+            display:none;
+        }
+    
+        #navbar_login{
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content:space-between;
+            flex-wrap: nowrap;
+            list-style-type: none;
+            margin-bottom: 90px;
+        }
+    
+    
+        div.header_login{
+            display: none;
+            align-items: center;
+        }
+    
+    
+        div#list_pressed{
+            padding-top: 7px;
+            margin:0;
+            display:flex;
+            flex-direction:row-reverse;
+            flex-wrap: nowrap;
+            justify-content:space-between;
+            background-color: #020202;
+            height:140px;
+            width:1143px;
+            padding-right: 10px;
+            font-size: 13px;
+        }
+        div#list_pressed div#More{
+            color:white;
+            position:relative;
+            display:flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            margin-top: 0px;
+            margin-left: 10px ;
+            border-radius: 5px;
+    
+        }
+        div#More a{
+            font-size:90px;
+            margin-top:10px;
+        }
+        div#logo p{
+            font-size:90px;
+        }
+        div#More li.More{
+            padding-top:80px;
+        }
         
-        padding-right: 350px;
-        font-size: 13px;
-    }
-    div#list_pressed div#More{
-        color:white;
-        position:relative;
-        display:flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        margin-top: 0px;
-        margin-left: 50px ;
-        border-radius: 5px;
+        div#More button{
+            font-family: Poppins;
+            color:white;
+            background: rgb(0, 0, 0);
+            border: 0px;
+        }
+        div#More button:hover{
+            font-family: Poppins;
+            cursor:pointer;
+            color:white;
+            background: #1900D5 ;
+            border: 0px;
+            border-radius: 5px;
+        }
+    
+        div#More a:hover{
+            font-family: Poppins;
+            cursor:pointer;
+            color:white;
+            background: #1900D5 ;
+            border: 0px;
+            border-radius: 5px;
+    
+        }
+        li.More_head{
+            background: #00000000;
 
-    }
-    div#More button{
-        font-family: Poppins;
-        color:white;
-        background: rgb(0, 0, 0);
-        border: 0px;
-    }
-    div#More button:hover{
-        font-family: Poppins;
-        cursor:pointer;
-        color:white;
-        background: #1900D5 ;
-        border: 0px;
-        border-radius: 5px;
-    }
-
-    div#More a:hover{
-        font-family: Poppins;
-        cursor:pointer;
-        color:white;
-        background: #1900D5 ;
-        border: 0px;
-        border-radius: 5px;
-
-    }
-    li.More_head{
-        background: #00000000;
-    }
-    ul div#list_pressed {
-        display: flex;
-        align-items: center;
-
-    }
-    .header_main{
-        background:#0F0E0E;
-        display: flex;
-        flex-direction: column;
-        position:relative;
-        margin-top: 90px;
-        width: 100%;
-        min-width:33% ;
-
-    }
-
-    #More ul li.More:not(#More_head){display:none;
-
-                                    background: #000000;  
-                                    border-bottom-left-radius: 5px; 
-                                    border-bottom-right-radius: 5px; 
-                                    margin-top: 0px;}
-    #Users ul li.Users:not(#Users_head){display:none;
-                                    background: #000000;  
-                                    border-bottom-left-radius: 5px; 
-                                    border-bottom-right-radius: 5px; 
-                                    margin-top: 0px;}            
-    .More_head{
-        color:red;
-        background: #020202;
-        height: 30px;
-    }
-
-    main img{
-        position:relative;
-        width:45%;
-        height: 100%;
-    }
-    li.logo_press{
-        display: flex;
-        flex-direction: row;
-    }
-    .logo_press img{
-
-        padding-top: 5px;
-        padding-left: 1px;
-        height: 20px;
-        width:  15px;
+        }
+        ul div#list_pressed {
+            display: flex;
+            align-items: center;
+    
+        }
+        .header_main{
+            background:#0F0E0E;
+            display: flex;
+            flex-direction: column;
+            position:relative;
+            margin-top: 190px;
+            width: 100%;
+            min-width:33% ;
+    
+        }
+    
+        #More ul li.More:not(#More_head){display:none;
+    
+                                        background: #000000;  
+                                        border-bottom-left-radius: 5px; 
+                                        border-bottom-right-radius: 5px; 
+                                        margin-top: 0px;}
+        #Users ul li.Users:not(#Users_head){display:none;
+                                        background: #000000;  
+                                        border-bottom-left-radius: 5px; 
+                                        border-bottom-right-radius: 5px; 
+                                        margin-top: 0px;}            
+        .More_head{
+            color:red;
+            background: #020202;
+            height: 30px;
+        }
+    
+        main img{
+            position:relative;
+            width:45%;
+            height: 100%;
+        }
+        li.logo_press{
+            display: flex;
+            flex-direction: row;
+        }
+        .logo_press img{
+    
+            padding-top: 5px;
+            padding-left: 1px;
+            height: 100px;
+            width:  85px;
+        
+        }
+        .logo_press p{       
+    
+            color:white;
+            padding: 0px;
+            margin-top: 0px;
+            margin-left: 1px;
+    
+            font-weight:bold;
+            font-style:normal;
+            font-size: 23px;
+        
+        }
+        footer{
+            border-top:solid gray;
+            min-width: 1143px;
+            font-size:15px;
+    
+        }
+        footer div{
+            background: #0F0E0E;
+            align-items:center;
+            min-width: 310px;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
     
     }
-    .logo_press p{       
-
-        color:white;
-        padding: 0px;
-        margin-top: 0px;
-        margin-left: 1px;
-
-        font-weight:bold;
-        font-style:normal;
-        font-size: 23px;
-    
-    }
-    footer{
-        border-top:solid gray;
-
-    }
-    footer div{
-        background: #0F0E0E;
-        align-items:flex-end;
-        min-width: 310px;
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-
-}
+/*Tela grande*/
 @media (min-width: 1144px){
 
     html{
