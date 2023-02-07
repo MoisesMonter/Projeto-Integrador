@@ -1,0 +1,42 @@
+#home{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:center;
+  width: 500px;
+  height: 300px;
+  height: auto;
+  background-color:#232323;
+
+  margin: 0% 10% 10% 25%;
+  padding-top: 5%;
+  padding-bottom: 8%;
+  background-color:#232323;
+  border-radius: 10px;
+  border: solid gray 2px ;
+}
+
+
+.login_user_info ul li{
+  list-style-type: none;
+  margin:1px;
+
+}
+div.cabeçalho{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  text-align: center;
+
+}
+
+
+@media (min-width: 1144px){
+  
+   
+}
+
+
+

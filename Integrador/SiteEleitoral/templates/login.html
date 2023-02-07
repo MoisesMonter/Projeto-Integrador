@@ -1,0 +1,68 @@
+{%extends 'corpo.html'%}
+{%load static%}
+
+{%block info%}
+
+
+<div id="breadcrumb">
+    <p>SEFIV/<a>Login</a></p>
+</div>
+
+<div id="user_login">
+    <div class="login_main" >
+        <div class="cabeçalho">
+            
+            <h1 >SISTEMA ELEITORAL & VOTAÇÃO DO IFRN</h1>
+
+            <img  src="{% static 'img/login/logo.svg'%}"/>
+
+            <p>Acesse sua Conta aqui<br>
+                Preencha suas informações a baixo</p>
+        </div>
+        <div class ='login_division'>
+            
+            <div class="login_user_info">
+                <form action="{% url 'login' %}" method="post" >{%csrf_token%}
+
+                        <ul >
+                            <li>
+                                {{form.Id_Academico.label}}<br>
+                                {{form.Id_Academico}}<br>
+                            </li>
+                            <li>
+                                {{form.Senha.label}}<br>
+                                {{form.Senha}}
+                            </li><br>                 
+                            <table><input type="submit" value="Log In"></table>  
+                        </ul>
+                    
+                </form>
+            </div>
+        <div>
+            <div><p>Não se cadastrou?</p><a href="../register" style="color:rgb(102, 233, 69)">Cadastrar</a></div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+
+{%endblock%}
+
+
+{%block info1%}
+<div style="margin:10%; display: flex; flex-direction:column; justify-content:center; align-items: center; flex-wrap: wrap;">
+    <h1 style="font-size: 50px;">PAGINA NÃO ENCONTRADA</h1>
+    <h3 style="font-size: 25px; ">Você precisa estar deslogado para acessar o conteúdo dessa pagina</h3>
+    <a style="font-size: 20px; color:brown;" href="../home">Clique aqui para voltar a Home</a>
+    </div>
+{%endblock%}
+
+
+
+
+
+

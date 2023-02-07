@@ -1,0 +1,147 @@
+{% extends 'corpo.html' %}
+
+{%load static%}
+
+{%block info1%}
+<link href="{% static 'css/config.css' %" rel="stylesheet">
+
+
+<div id="breadcrumb">
+    <p href="../">SEFIV/<a href="http://localhost:8000/lista_eleicoes/">
+        {% if local == 'lista_eleicoes' %}
+        Lista de Eleições/
+        {% else %}
+        Minha Lista de Eleições/
+        {% endif %}
+        <a href="">Urna Nº{{Eleitoral.N_Eleicao}}</a></p>
+
+    </div>
+{% if Eleitoral.Ativo == 1 %}
+    <div id="UrnaEleicao"> 
+        
+        <nav style="font-size:20px; text-align: center;">
+                <ul>
+                        <li><h1 >ELEIÇÃO Nº {{Eleitoral.N_Eleicao}}</h1></li>  
+                        <li><h4>{{Eleitoral.Titulo}}</h4></li><br>
+                        <p class="descrição">{{Eleitoral.Descricao}}</p></li>
+
+                </ul>
+        </nav>
+        <nav style="font-size:20px; text-align: center; align-items: center; display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center;">
+            <ul>
+                <li><h1>Tabela de candidatos</h1></li>
+            </ul>
+            <!--TABELA DE CANDIDATOS-->
+            <table border="1">
+
+
+                <tr>
+                    <td>Candidatos</td>
+                    <td>Número Eleitoral</td>
+
+                </tr>
+
+                {%  for Linhas in candidatos %}
+                <tr>
+                    {% for Coluna in Linhas%}
+                        <td>{{Coluna}}</td>
+                    {% endfor %}
+
+                </tr>
+                {% endfor %}
+
+            </table><br>
+            {%if votar == 0 %}
+                <table><a class="irparaurna" href="../Urna/Registrar_Voto/">Registrar seu voto!</a></table><br>
+            {% else%}
+            <table><a class="irparaurna" style="color:orange; "href="">Voto já Registrado</a></table><br>
+            {%endif%}
+
+
+        </nav>
+
+
+
+
+
+    </div>
+{% else%}
+<div id="UrnaEleicao"> 
+        
+    <nav style="font-size:20px; text-align: center;">
+            <ul>
+                    <li><h1 >ELEIÇÃO Nº {{Eleitoral.N_Eleicao}}</h1></li>  
+                    <h2 class="descrição">Resultado Final</h2></li>
+
+                    {% if result|length > 0 and result|length < 2 %}
+                        {% for linha in result %}
+                            <h1 style="color:aquamarine;">{{linha.0}}</h1>
+                            <h3>venceu essa eleição</h3>
+                        {% endfor%}
+                    {% elif result|length > 1%}
+                        <h3>Empate entre</h3><br>  
+                        {% for linha in result%}
+                            {{linha.0}}<br><br>
+                        {% endfor %}
+                    {%else%}
+                    <h1>Nem um voto contabilizado</h1>
+                    <h3>Without Vote</h3><br>  
+                    {% endif %}
+
+            </ul>
+    </nav>
+    <nav >
+
+
+
+        <nav style="font-size:20px; text-align: center; align-items: center; display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center;">
+            <ul>
+                <li><h4>Mais Informações</h4></li>
+            </ul>
+            <!--TABELA DE CANDIDATOS-->
+            <table border="1">
+
+
+                <tr>
+                    <td>Candidatos</td>
+                    <td>Total de votos</td>
+                    <!--<td>Porcentagem</td>-->
+                </tr>
+
+                {%  for Linhas in candidatosend %}
+                <tr>
+                    <td>{{Linhas.0}}</td>
+                    <td>{{Linhas.2}}</td>
+                    <!--<td>{{Linhas.3}}</td>-->
+                </tr>
+                {% endfor %}
+
+            </table><br>
+
+            <table><a class="irparaurna" style="color:red;" href="http://localhost:8000/lista_eleicoes/">Votos encerrados</a></table><br>   
+
+
+
+        </nav>
+    </nav>
+
+
+
+
+
+</div>
+
+ {% endif %}
+
+
+
+{%endblock%}
+
+
+{%block info%}
+<div style="margin:10%; display: flex; flex-direction:column; justify-content:center; align-items: center; flex-wrap: wrap;">
+    <h1 style="font-size: 50px;">PAGINA NÃO ENCONTRADA</h1>
+    <h3 style="font-size: 25px; ">Você precisa estar logado para acessar o conteúdo dessa pagina</h3>
+    <a style="font-size: 20px; color:brown;" href="../login">Clique aqui para voltar logar na sua conta</a>
+    </div>
+{%endblock%}

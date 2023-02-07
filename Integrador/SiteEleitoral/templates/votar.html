@@ -1,0 +1,132 @@
+{% extends 'corpo.html' %}
+
+{%load static%}
+
+{%block info1%}
+<div id="breadcrumb">
+    <p href="../">SEFIV/<a href="http://localhost:8000/lista_eleicoes/">
+        {% if local == 'lista_eleicoes' %}
+        Lista de Eleições/
+        {% else %}
+        Minha Lista de Eleições/
+        {% endif %}
+        <a href="http://localhost:8000/Urna/">Urna Nº{{Eleitoral.N_Eleicao}}</a></p>
+
+    </div>
+<div id="UrnaEletronica"> 
+
+    <nav >
+        <ul>
+            <li><h1>Urna Eletrônica</h1></li>
+        </ul>
+        <table border="0" id="Urna">
+            <tr>
+
+                <td ><p class="lcd" >Nº:<p></td>
+                    {% if lcd_vote|length == 1%}
+                    <td ><p class="lcd" >{{lcd_vote}}----</p></td>
+                    {% elif lcd_vote|length == 2%}
+                    <td ><p class="lcd" >{{lcd_vote}}---</p></td>
+                    {% elif lcd_vote|length == 3%}
+                    <td ><p class="lcd" >{{lcd_vote}}--</p></td>
+                    {% elif lcd_vote|length == 4%}
+                    <td ><p class="lcd" >{{lcd_vote}}-</p></td>
+                    {% elif lcd_vote|length == 5%}
+                    <td ><p class="lcd" >{{lcd_vote}}</p></td>
+                    
+                    {% else %}
+                    
+                    <td ><p class="lcd" >-----</p></td>
+                    {% endif %}
+            </tr>
+
+
+            <tr>
+                {% for list in lcd_candidato %}
+                    {% if list.1 == lcd_vote%}
+                    <td ><p class="lcd" >{{list.0}}</p></td>
+                    {%else%}
+                    <td style="margin-top:11%; margin-bottom: 11%;"></td><br>
+                    {%endif%}
+                {% endfor %}
+            </tr>
+            <tr>
+                <td><form action ="{% url 'votar' %}" method="post">{% csrf_token%}
+                <input  class='normal' type="submit" name="b7" value="7">
+                <form></td>
+                <td><form action ="{% url 'votar' %}" method="post">{% csrf_token%}
+                <input class='normal' type="submit" name="b8" value="8">
+                <form></td>
+                <td><form action ="{% url 'votar' %}" method="post">{% csrf_token%}
+                <input class='normal' type="submit" name="b9" value="9">
+                <form></td>
+
+            </tr>
+            <tr>
+                <td><form action ="{% url 'votar' %}" method="post">{% csrf_token%}
+                <input class='normal' type="submit" name="b4" value="4">
+                <form></td>
+                <td><form action ="{% url 'votar' %}" method="post">{% csrf_token%}
+                <input class='normal' type="submit" name="b5" value="5">
+                <form></td>
+                <td><form action ="{% url 'votar' %}" method="post">{% csrf_token%}
+                <input class='normal' type="submit" name="b6" value="6">
+                <form></td>
+
+            </tr>
+            <tr>
+                <td><form class='normal' action ="{% url 'Urna' %}" method="post">{% csrf_token%}
+                <input class='normal' type="submit" name="b1" value="1">
+                <form></td>
+                <td><form action ="{% url 'votar' %}" method="post">{% csrf_token%}
+                <input class='normal' type="submit" name="b2" value="2">
+                <form></td>
+                <td><form action ="{% url 'votar' %}" method="post">{% csrf_token%}
+                <input class='normal' type="submit" name="b3" value="3">
+                <form></td>
+
+            </tr>
+            <tr>
+                <td><input class='hiden' type="submit" value="  "></td>
+                <td><form action ="{% url 'votar' %}" method="post">{% csrf_token%}
+                    <input class='normal' type="submit" name="b0" value="0">
+                <form>
+                <td><input class='hiden' type="submit" value="  "></td>
+
+            </tr>
+            <tr><td><form action ="{% url 'votar' %}" method="post">{% csrf_token%}
+                <input class='action1' type="submit" name="Null" value="Null" >
+                </form>
+
+                
+                </td>
+                <td><form action ="{% url 'votar' %}" name="botoes_urna" method="post">{% csrf_token%}
+ 
+                    <input class='action2' type="submit" name="Cancelar" value="Cancelar" >
+                    </form>
+                </td>
+                <td><form action ="{% url 'votar' %}" method="post">{% csrf_token%}
+                    
+                   <input class='action3' type="submit" name="Votar" value="Votar">
+                    </form>
+                </td>
+
+
+            </tr>
+
+        </table>
+    </nav><br>
+    <table><a style="font-size:3ex;" href="http://localhost:8000/Urna/">Voltar aqui!</a>
+    </table><br>
+
+</div>
+{%endblock%}
+
+
+{%block info%}
+<div style="margin:10%; display: flex; flex-direction:column; justify-content:center; align-items: center; flex-wrap: wrap;">
+    <h1 style="font-size: 50px;">PAGINA NÃO ENCONTRADA</h1>
+    <h3 style="font-size: 25px; ">Você precisa estar logado para acessar o conteúdo dessa pagina</h3>
+    <a style="font-size: 20px; color:brown;" href="../login">Clique aqui para voltar logar na sua conta</a>
+    </div>
+{%endblock%}

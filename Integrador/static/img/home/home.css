@@ -1,0 +1,84 @@
+*{background-color: rgb(75, 74, 74);
+margin: 50;
+color: aliceblue;
+font-size: 17px;}
+
+
+#home{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+}
+#home img{
+    margin:0px;
+    border: solid 3px rgb(49, 49, 49);
+    border-radius: 3ex;
+    box-shadow: 2px 2px 10px 5px rgb(0, 0, 0);  
+    }
+
+#home div#topo{
+
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10ex ;
+}
+#home div#topo img{
+    width: 50%;
+    height: 40%;
+    max-height: fit-content;
+    max-width: fit-content;
+    margin: 5px;
+
+    }
+#home div#topo div{
+        padding: 5px;
+        margin: 5px;
+    
+        }
+#home div.corpo{
+    display: flex;
+
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    margin: 0%;
+}
+#home div#lado1 div{
+    padding: 5px;
+    margin: 5px;
+
+    }
+#home  div#lado1{
+    flex-direction: row;
+    margin-bottom: 10ex ;
+}
+
+#home div#lado2 div{
+    padding: 5px;
+    margin: 5px;
+
+    }
+#home  div#lado2{
+    flex-direction: row-reverse;
+    margin-bottom: 10ex ;
+}
+#home  div#lado2 img{
+    margin: 3px;
+    width: 30ex;
+}
+#home  div#lado1 img{
+    margin: 3px;
+    width: 30ex;
+}
+#home div.corpo div{
+    padding: 0%;
+    margin: 0%;
+}
+#home div.txt p{
+    
+    padding: 0%;
+    margin: 0% 0% 1% 1%;
+}

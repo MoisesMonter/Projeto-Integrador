@@ -1,0 +1,95 @@
+#listas_eleicoes table{
+    text-align: center;
+    border-collapse: collapse;
+    color: #FFFF;
+    font-size: 15px;
+    box-shadow: 2px 2px 10px 5px rgb(0, 0, 0); 
+    border-radius: 50px;
+
+}
+#listas_eleicoes tr{ 
+    margin: 10px;
+}
+#listas_eleicoes td{padding: 25px;}
+
+
+.inputlistaclass{
+    background-color: #2e2e2e2e;
+    color:white;
+    font-size: 600;
+    padding: 5px;
+
+}
+.inputlistaclass:hover{
+    background-color: #8a84842e;
+
+    color:white;
+
+}
+@media (max-width:1143px){
+    div#listas_eleicoes{
+
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: center;
+    }
+    div#listas_eleicoes table{
+        border-radius: 10px;
+        background: #000000;
+        border: none;
+  
+
+    }
+    div#listas_eleicoes table td{
+        background: #000000;
+        border: none;
+        border-top: none;
+        border-top: solid gray 1px;
+
+
+    }   
+    div#listas_eleicoes table tr{
+        
+        border: none;
+        border: solid #0000 0px;
+        
+    }
+}
+@media (min-width:1144px){
+    #navbar_login{
+        width: auto;
+
+        max-width: auto;
+    }
+
+    div#listas_eleicoes{
+
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: center;
+        width: 1200px;
+    }
+    div#listas_eleicoes table{
+        border-radius: 10px;
+        background: #232323;
+        border: none;
+  
+
+    }
+    div#listas_eleicoes table td{
+        background: #232323;
+        border: none;
+        border-top: none;
+        border-top: solid gray 1px;
+
+
+    }   
+    div#listas_eleicoes table tr{
+        
+        border: none;
+        border: solid #0000 0px;
+        
+    }
+}

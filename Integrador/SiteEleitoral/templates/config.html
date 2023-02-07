@@ -1,0 +1,112 @@
+
+{%extends 'corpo.html'%}
+
+{% load static %}
+<link href="{% static 'css/config.css' %}" rel="stylesheet">
+{%block info1%}
+
+<div id="breadcrumb">
+    <p href="../">SEFIV/<a href="">Configurações</a></p>
+    </div>
+
+<div id="configuracao"> 
+    <form action="{% url 'config' %}" id="autoincrement" method="post" enctype="multipart/form-data" autocomplete="off">{%csrf_token%}
+
+        <div>
+            {% if usuario_logado.Foto == "" %}
+                <img src="../media/vazio/perfil.jpg">
+                
+            {% else %}
+            
+                <img src='{{usuario_logado.Foto.url}}'>
+
+                
+            {% endif %}
+    </div>
+    <div>
+        {%if usuario_logado.Genero == 'M'%}
+            <h2>Seja Bem vindo {{usuario_logado.Nome}}</h2> 
+        {%elif usuario_logado.Genero == 'F'%}
+            <h2>Seja Bem vinda {{usuario_logado.Nome}}</h2> 
+        {%endif%}
+    </div>
+    <div>
+        
+    </div>
+
+    
+
+    <ul >
+        <li>
+            
+            <label>Id Acadêmico<br>
+            <input style='align-items: center; color: aliceblue;'type="text" value= {{usuario_logado.Id_Academico}} disabled></label>
+        </li>
+        <li>
+            <label>CPF<br>
+            <input style='align-items: center; color: aliceblue;'type="text" value= {{cpf_usuario}} pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" disabled></label>
+        </li>
+        <li>
+            <label>E-mail<br>
+            <input style='align-items: center; color: aliceblue;'type="text" value= {{usuario_logado.email}} disabled></label>
+        </li>
+        <li>
+            <label>Cargo<br>
+            <div>
+                <div>
+                {% if usuario_logado.Cargo == '0'%}
+                    <input style='align-items: center; color: aliceblue;'type="text" value= 'None' disabled></label>
+                {% elif usuario_logado.Cargo == '1'%}
+                    <input style='align-items: center; color: aliceblue;'type="text" value= 'Discente' disabled></label>
+                {% elif usuario_logado.Cargo == '2'%}
+                    <input style='align-items: center; color: aliceblue;'type="text" value= 'Docente' disabled></label>
+                {% elif usuario_logado.Cargo == '3'%}
+                    <input style='align-items: center; color: aliceblue;'type="text" value= 'Tercerizado' disabled></label>
+                {% elif usuario_logado.Cargo == '4'%}
+                    <input style='align-items: center; color: aliceblue;'type="text" value= 'Bolsista' disabled></label>
+                {% elif usuario_logado.Cargo == '5'%}
+                    <input style='align-items: center; color: aliceblue;'type="text" value= 'Reitor' disabled></label>
+                {%endif%}</div>
+                <div><a style="color:rgb(0, 253, 0)" href="http://localhost:8000/configurar_Cargo/">alterar aqui</a></div>
+
+            </div>
+        </li>
+        <li></li><br>
+            <table>
+            {{form.Foto.label}}<br>
+            {{form.Foto}}
+        </table>
+        
+    </ul>
+    
+    
+        
+            <!--{{form}}-->
+
+    
+        
+    <table><input style="color:rgb(255, 255, 255);" type="submit" value="Salvar"></table><br>
+
+    
+    </form>
+    <div id="li_conf">
+        <div style='align-items: center; background-color:aliceblue; width: 14ex; border-radius:6px; margin-bottom: 5px;'>   
+            <a href="../alterarpassword" style='align-items: center; color: rgb(0, 0, 0); padding-left: 5px;'>Editar Senha</a><br>
+        </div>
+    
+        <div style='align-items: center; background-color: black; width: 14ex; border-radius: 5px; margin-bottom: 5px;'>
+            <a href="../deletarconta" style='align-items: center; color: rgb(255, 0, 0); padding-left: 5px;'>Excluir Conta</a><br>
+        </div>
+    </div>
+
+
+
+</div>
+{%endblock%}
+{%block info%}
+<div style="margin:10%; display: flex; flex-direction:column; justify-content:center; align-items: center; flex-wrap: wrap;">
+<h1 style="font-size: 50px;">PAGINA NÃO ENCONTRADA</h1>
+<h3 style="font-size: 25px; ">Você precisa estar logado para acessar o conteúdo dessa pagina</h3>
+<a style="font-size: 20px; color:brown;" href="../login">Clique aqui para voltar logar na sua conta</a>
+</div>
+{%endblock%}

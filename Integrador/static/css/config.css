@@ -1,0 +1,146 @@
+form#autoincrement{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 1144px){
+
+    div#configuracao{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content:center;
+        align-items: center;
+        width: 700px;
+        height: 400px;
+        height: auto;
+        background-color:#232323;
+        box-shadow: 1px 1px 1px #000000;
+
+        border-radius: 5px;
+        border: #ffffff;
+        border-color: aliceblue;
+
+        padding-bottom: 8%;
+        
+}
+
+div#configuracao ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div#configuracao ul li{
+
+    list-style-type: none;
+    align-items: center;
+}
+form#img{
+    margin-left: 100px;
+}
+div#configuracao img{
+    margin-top: 5ex;
+
+    border-radius: 50%;
+    width: 30ex;
+    height: 30ex;
+
+}
+div#configuracao input#id_Foto{
+
+    background-color: #232323;
+    color: #23232300;
+}
+
+div#configuracao input{
+    align-items: center;
+    color: #ffffff;
+    background-color: rgb(95, 95, 95);
+}
+
+div#configuracao input#id_Foto.form-control{
+    margin-left: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style:none;
+    box-shadow: none;
+}
+
+div#li_conf{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    
+}
+
+
+}
+
+
+@media (max-width: 1143px){
+
+    div#configuracao{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content:center;
+        align-items: center;
+
+        height: auto;
+        background-color:#000000;
+
+        width: 700px;
+        height: 900px;
+        border-radius: 5px;
+        border: #ffffff;
+        border-color: aliceblue;
+        padding-top: 5ex;
+        margin-bottom: 5%;
+        padding-bottom: 8%;
+        box-shadow: 1px 1px 1px #000000;
+        
+}
+
+
+div#configuracao ul li{
+    list-style-type: none;
+}
+form#img{
+    margin-left: 100px;
+}
+div#configuracao img{
+    margin-top: 5ex;
+    margin-left: 1ex;
+    border-radius: 50%;
+    width: 15ex;
+    height: 15ex;
+
+}
+div#configuracao input#id_Foto{
+
+    background-color: #232323;
+    color: #23232300;
+}
+
+div#configuracao input{
+    color: #000000;
+    background-color: rgb(170, 170, 170);
+}
+
+div#configuracao input#id_Foto.form-control{
+    border-style:none;
+    box-shadow: none;
+background-color: #000000;
+    }
+
+div#li_conf{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    
+}
+}

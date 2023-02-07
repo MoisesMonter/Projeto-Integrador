@@ -6,19 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {%block styles%}
+    
     <script defer src="javascript.js"></script>
     <script defer src="{% static 'js/javascript.js' %}"></script>
     
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <link href="{% static 'css/home.css' %}" rel="stylesheet">
+    <link href="{% static  'css/listas.css' %}" rel="stylesheet">
     <link href="{% static 'css/about_us.css' %}" rel="stylesheet">
     <link href="{% static 'css/login.css' %}" rel ="stylesheet">
     <link href="{% static 'css/register.css' %}" rel="stylesheet">
     <link href="{% static 'css/suport_site.css' %}" rel="stylesheet">
-
+    <link href="{% static 'css/config.css' %}" rel="stylesheet">
+    <link href="{% static 'css/geraraeleicaos.css' %}" rel="stylesheet">
+    <link href="{% static 'css/Urnas.css' %}" rel="stylesheet">
+    <link href="{% static 'css/paginacao.css' %}" rel="stylesheet">
+    <!-- CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    
+
+        <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+
+
+    
+    
+    
     {%endblock%}
-    <title>SEVIF</title>
+
 </head>
 
 {%if x == 1 %} <!--logado-->
@@ -29,11 +46,11 @@
         <div class="header_main">
         <div class="header_login">
             <div >
-                <a>Seja bem vindo(a), Nome de Usuário<br><a href="../login">Log Out</a></a>
+                <p>Seja bem vindo(a), {{usuario_logado.Nome}}<br><a href="http://localhost:8000/logout">Log Out</a></a>
             </div>
 
             <div>
-                <p><!--Buscar--></p>
+
             </div>
             
         </div>
@@ -58,12 +75,13 @@
 
                     <ul>
                         <li class="More_head"><button id="Moore" ><a>More</a></button></li>
-                        <li class="More"><a href="../home">Home</a><br>
-                                        <a href="../lista_eleicoes">Lista de Eleições</a><br>
-                                        <a href="../lista_eleicoes">Participando</a><br>
-                                        <a href="../login">Gerar uma Eleição</a><br>
-                                        <a href="../about_us">Sobre Nós</a><br>
-                                        <a href="../login">Log Out</a><br>
+                        <li class="More"><a href="http://localhost:8000/home">Home</a><br>
+                                        <a href="http://localhost:8000/lista_eleicoes">Lista de Eleições</a><br>
+                                        <a href="http://localhost:8000/participando">Participando</a><br>
+                                        <a href="http://localhost:8000/gerarumaeleicao">Gerar uma Eleição</a><br>
+                                        <a href="http://localhost:8000/about_us">Sobre Nós</a><br>
+                                        <a href="http://localhost:8000/configuração"> Configurações</a><br>
+                                        <a href="http://localhost:8000/logout/">Log Out</a><br>
                                         </li>
                     </ul>
                     </li>
@@ -85,12 +103,12 @@
                             <svg width="24" height="24" viewBox="0 0 24 24">
                                 <path d="m13.9971 3.96598c-1.1743-.91464-2.8198-.91464-3.9941 0l-5.00008 3.89446c-.79061.61579-1.25292 1.56188-1.25292 2.56406v7.0453c0 1.795 1.45507 3.25 3.25 3.25h10c1.795 0 3.25-1.455 3.25-3.25v-7.0454c0-1.00208-.4623-1.94817-1.2529-2.56397zm-4.91587-1.18339c1.71627-1.33679 4.12137-1.33679 5.83757 0l5 3.89445c1.1556.90001 1.8312 2.28276 1.8312 3.74736v7.0454c0 2.6234-2.1266 4.75-4.75 4.75h-10c-2.62335 0-4.75-2.1266-4.75-4.75v-7.0453c0-1.4647.67569-2.84745 1.83119-3.74746z" ></path><path d="m8.00006 18c0-.4142.33579-.75.75-.75h6.50004c.4142 0 .75.3358.75.75s-.3358.75-.75.75h-6.50004c-.41421 0-.75-.3358-.75-.75z" ></path>
                             </svg>
-                        <a href="../home">Home</a></div>
+                        <a href="http://localhost:8000/home">Home</a></div>
                     </li>
-                    <li class="list_login"><a href="../lista_eleicoes">Lista de Eleições</a></li>
-                    <li class="list_login"><a href="../lista_eleicoes">Participando</a></li>
-                    <li class="list_login"><a href="../login">Gerar uma Eleição</a></li>
-                    <a> <li class="list_login" ><a  href="../about_us" >Sobre Nós</a></li></a>
+                    <li class="list_login"><a href="http://localhost:8000/lista_eleicoes">Lista de Eleições</a></li>
+                    <li class="list_login"><a href="http://localhost:8000/participando">Participando</a></li>
+                    <li class="list_login"><a href="http://localhost:8000/gerarumaeleicao">Gerar uma Eleição</a></li>
+                    <a> <li class="list_login" ><a  href="http://localhost:8000/about_us" >Sobre Nós</a></li></a>
 
                     <br>
                     </ul>
@@ -101,9 +119,9 @@
                 <ul>
                     <br>
                     <li class="list_login">
-                        <a >Nome usuario</a>
+                        <a href="http://localhost:8000/configuração"> Configurações</a>
                     </li>
-                    <li class="list_login"><a href=../login>Log Out</a></li>
+                    <li class="list_login"><a href=http://localhost:8000/logout>Log Out</a></li>
                     <br>
 
                     
@@ -115,7 +133,7 @@
                 <ul>
                     <br>
                     <li class="list_login">
-                        <!--<a href="../admin">Configurações</a></li>-->
+                        <!--<a href="http://localhost:8000/admin">Configurações</a></li>-->
                     <br>
 
                     
@@ -134,45 +152,59 @@
 
 
     <footer>
-        <div>
-            <div> 2022 Projeto Integrador em  desenvolvimento,  efetuado por alunos<br>
-                do IFRN campus Pau dos Ferros.<br></div>
-            <div><br> Suporte
-                Reporte um erro de pagina.<br>
-                Informar um problema no sistema<br>
-                Informar um problema no site<br>
-                <a href="../suport_site">Clicando aqui.</a></div>
-            <div> INFORMAÇÕES TÉCNICAS<br><br>
+        <div class="info">
+            <div> <p>PROJETO 2022/2023<br><br>
+                2022 Projeto Integrador em  desenvolvimento,  efetuado por alunos<br>
+                do IFRN campus Pau dos Ferros.</p><br>
+            </div>
+            <div class="info_link"> 
+                <div>
+                    <p>Suporte<br><br>
+                        Reporte um erro de pagina.<br>
+                        Informar um problema no sistema<br>
+                        Informar um problema no site</p><br>
+                </div>
+                <div><br>
+                    <a href="http://localhost:8000/suport_site">Clicando aqui.</a>
+                </div><br>
+
+                
+                
+                
+            </div>
+            <div> <p>INFORMAÇÕES TÉCNICAS<br><br>
 
                 Servidor:Bololo - 30d3852xxxxx00xx<br>
                 Última extração do SEVIF:21/10/2022<br>
                 Última atualização do SEVIF:10/11/2022 22:56<br>
                 Responsável:Alunos_Integrador/IFRN<br>
-                Feito com Django
-                </div>
+                Feito com Django</p>
+            </div>
         </div>
     </footer>
     
     </div>
 
+    <!-- JavaScript -->
 
 </body>
 
 
 {%else %}<!--offline-->
+
 <body>
+    
     <div id="navbar_login">
 
         <div class="header_main">
         <div class="header_login">
             <div >
-                <a>Seja bem vindo(a), faça seu <a href="../login">login</a><br>Se não for cadastrado faça sua <a href="../register">inscrição aqui.</a></a>
+                <p>Seja bem vindo(a), faça seu <a href="http://localhost:8000/login">login aqui.</a><br>Se não for cadastrado faça sua <a href="http://localhost:8000/http:/register">inscrição aqui.</a></a>
             </div>
 
             <div>
                 <p><!--Buscar--></p>
             </div>
-            
         </div>
         
         <main>
@@ -198,13 +230,13 @@
 
                     <ul>
                         <li class="More_head"><button id="Moore" ><a>More</a></button></li>
-                        <li class="More"><a href="../home">Home</a><br>
-                                        <a href="../lista_eleicoes">Lista de Eleições</a><br>
-                                        <a href="../login">Participando</a><br>
-                                        <a>Gerar uma Eleição</a><br>
-                                        <a href="../about_us">Sobre Nós</a><br>
-                                        <a href="../login">Log in</a><br>
-                                        <a href="../register">Registers</a><br>
+                        <li class="More"><a href="http://localhost:8000/home">Home</a><br>
+                                        <a href="http://localhost:8000/lista_eleicoes">Lista de Eleições</a><br>
+                                        <a href="http://localhost:8000/participando">Participando</a><br>
+                                        <a href="http://localhost:8000/gerarumaeleicao">Gerar uma Eleição</a><br>
+                                        <a href="http://localhost:8000/about_us">Sobre Nós</a><br>
+                                        <a href="http://localhost:8000/login">Log in</a><br>
+                                        <a href="http://localhost:8000/register">Registers</a><br>
                                         <a>Admin Login</a><br>
                                         </li>
                     </ul>
@@ -227,12 +259,12 @@
                             <svg width="24" height="24" viewBox="0 0 24 24">
                                 <path d="m13.9971 3.96598c-1.1743-.91464-2.8198-.91464-3.9941 0l-5.00008 3.89446c-.79061.61579-1.25292 1.56188-1.25292 2.56406v7.0453c0 1.795 1.45507 3.25 3.25 3.25h10c1.795 0 3.25-1.455 3.25-3.25v-7.0454c0-1.00208-.4623-1.94817-1.2529-2.56397zm-4.91587-1.18339c1.71627-1.33679 4.12137-1.33679 5.83757 0l5 3.89445c1.1556.90001 1.8312 2.28276 1.8312 3.74736v7.0454c0 2.6234-2.1266 4.75-4.75 4.75h-10c-2.62335 0-4.75-2.1266-4.75-4.75v-7.0453c0-1.4647.67569-2.84745 1.83119-3.74746z" ></path><path d="m8.00006 18c0-.4142.33579-.75.75-.75h6.50004c.4142 0 .75.3358.75.75s-.3358.75-.75.75h-6.50004c-.41421 0-.75-.3358-.75-.75z" ></path>
                             </svg>
-                        <a href="../home">Home</a></div>
+                        <a href="http://localhost:8000/home">Home</a></div>
                     </li>
-                    <li class="list_login"><a href="../lista_eleicoes">Lista de Eleições</a></li>
-                    <li class="list_login"><a href="../login">Participando</a></li>
-                    <li class="list_login"><a>Gerar uma Eleição</a></li>
-                    <a> <li class="list_login" ><a  href="../about_us" >Sobre Nós</a></li></a>
+                    <li class="list_login"><a href="http://localhost:8000/lista_eleicoes">Lista de Eleições</a></li>
+                    <li class="list_login"><a href="http://localhost:8000/participando">Participando</a></li>
+                    <li class="list_login"><a href="http://localhost:8000/gerarumaeleicao">Gerar uma Eleição</a></li>
+                    <a> <li class="list_login" ><a  href="http://localhost:8000/about_us" >Sobre Nós</a></li></a>
 
                     <br>
                     </ul>
@@ -243,9 +275,9 @@
                 <ul>
                     <br>
                     <li class="list_login">
-                        <a href="../login">Log in (Users)</a>
+                        <a href="http://localhost:8000/login">Log in (Users)</a>
                     </li>
-                    <li class="list_login"><a href="../register">Register</a></li>
+                    <li class="list_login"><a href="http://localhost:8000/register">Register</a></li>
                     <br>
 
                     
@@ -257,7 +289,7 @@
                 <ul>
                     <br>
                     <li class="list_login">
-                        <a href="../admin">Admin</a></li>
+                        <a href="http://localhost:8000/admin">Admin</a></li>
                     <br>
 
                     
@@ -276,33 +308,63 @@
 
 
     <footer>
-        <div>
-            <div> 2022 Projeto Integrador em  desenvolvimento,  efetuado por alunos<br>
-                do IFRN campus Pau dos Ferros.<br></div>
-            <div><br> Suporte
-                Reporte um erro de pagina.<br>
-                Informar um problema no sistema<br>
-                Informar um problema no site<br>
-                <a href="../suport_site">Clicando aqui.</a></div>
-            <div> INFORMAÇÕES TÉCNICAS<br><br>
+        <div class="info">
+            <div> <p>PROJETO 2022/2023<br><br>
+                2022 Projeto Integrador em  desenvolvimento,  efetuado por alunos<br>
+                do IFRN campus Pau dos Ferros.</p><br>
+            </div>
+            <div class="info_link"> 
+                <div>
+                    <p>Suporte<br><br>
+                        Reporte um erro de pagina.<br>
+                        Informar um problema no sistema<br>
+                        Informar um problema no site</p><br>
+                </div>
+                <div>
+                    <a href="http://localhost:8000/suport_site">Clicando aqui.</a>
+                </div><br>
+
+                
+                
+                
+            </div>
+            <div> <p>INFORMAÇÕES TÉCNICAS<br><br>
 
                 Servidor:Bololo - 30d3852xxxxx00xx<br>
                 Última extração do SEVIF:21/10/2022<br>
                 Última atualização do SEVIF:10/11/2022 22:56<br>
                 Responsável:Alunos_Integrador/IFRN<br>
-                Feito com Django
-                </div>
+                Feito com Django</p>
+            </div>
         </div>
     </footer>
     
     </div>
 
+    <!-- JavaScript -->
 
 </body>
 
 
 {%endif%}
 
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
+
+<script>
+        
+        {% for information in messages %}
+            alertify.set('notifier','position', 'top-center');
+            {% if messagem == 0 %}
+                alertify.error('{{information}}');
+            {% elif messagem != 0 %} 
+                alertify.success('{{information}}');
+            {%endif%}
+        {% endfor %}
+</script>
 
 </html>
+
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <title>SEVIF</title>

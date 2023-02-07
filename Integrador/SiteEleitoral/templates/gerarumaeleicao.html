@@ -1,0 +1,142 @@
+{% extends 'corpo.html' %}
+
+{%load static%}
+
+{%block info1%}
+<link href="{% static 'css/config.css' %" rel="stylesheet">
+
+
+<div id="breadcrumb">
+    <p href="../">SEFIV/<a href="">Gerar uma Eleição</a></p>
+    </div>
+
+<div id="gerareleicao"> 
+    
+    <div>
+        <h1>Formulário para uma nova candidatura</h1><br>
+    </div>
+    <div class="texto_persona">
+        
+        <div class="candidato_persona">
+
+                
+            <div>   
+                {% if len >= 1 %}
+
+                <form action ="{% url 'gerarumaeleicao' %}" id='candidato_Apagar'method="post">{% csrf_token%}
+                    <label for="Lista_Candidato">Candidatos</label><br><br>
+                    <ul>
+                    {%for lc in lista_candidatos %}
+                            <br><li>
+                            <label >{{lc}}</label>
+                            <input type="checkbox" id="{{lc}}" name="{{lc}}"></li><br>
+                    {% endfor %}
+                   
+                    <div class="input1_2">
+                        <li><input type="submit" value="Apagar"></form></li>
+                    
+                        <li><form action ="{% url 'gerarumaeleicao' %}" id='candidato_Apagar'method="post">{% csrf_token%}
+                            {{form3.Form1}}
+                            <input type="submit" value="Apagar Tudo">
+                            <br>
+
+                        </form></li>
+                    </div>
+                    </ul>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>    
+                    <br>
+                    <br>
+                {%else%}
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+                {% endif %}
+                
+            </div>
+            <div>
+                <form action ="{% url 'gerarumaeleicao' %}" id='usuarios'method="post">{% csrf_token%}
+                    {{select_day.Form_Form.label}}
+                <ul>
+                    <li>{{form2.Gerando_Candidato.label}}<br>
+                        {{form2.Gerando_Candidato}}</li>
+                </ul>
+                <input type="submit" value="Gerar Candidato"></table><br>
+                
+            <!--input pegando titulo e descrição na div abaixo  -->
+            </div>
+            
+        </div>
+        <div  class="candidato_texto">
+            
+                <ul>    {% if form1_2.0 > 1 %}
+                        <input type="text" class="form-control" autocomplete="on" placeholder="Titulo da Eleição"  name="Formulario1" id="Formulario1"><br>
+                        {% else %}
+                        <input type="text" class="form-control" autocomplete="on" placeholder="Titulo da Eleição" name="Formulario1" id="Formulario1" value = '{{form1_2.0}}'><br>
+                        {% endif %}
+                        {% if form1_2.1 > 1 %}
+                        <textarea type="textarea" rows="5" max-lenght="300" placeholder='Resuma em 300 linhas' data-ls-module="charCounter"  name="Formulario2" id="Formulario2"></textarea>
+                        {% else %}
+                        <textarea type="textarea" rows="5" placeholder='Resuma em 300 linhas' data-ls-module="charCounter"  name="Formulario2" id="Formulario2">{{form1_2.1}}</textarea>
+                        {% endif %}
+                        
+                    
+                    </form>
+                    
+                    <li>
+                    <form style="display:flex; flex-direction:column; align-items:flex-start;"  action ="{% url 'gerarumaeleicao' %}" method="post"> {% csrf_token%}  
+                        {{select_day.select_day.label}}
+                        {{select_day.select_day}}
+                        {{select_day.select_cargo.label}}
+
+                        {% if usuario_logado.Cargo == '0'%}
+                        {{lista_C0.select_cargo}}
+                        {% elif usuario_logado.Cargo == '1'%}
+                        {{lista_C1.select_cargo}}
+                        {% elif usuario_logado.Cargo == '2'%}
+                        {{lista_C2.select_cargo}}
+                        {% elif usuario_logado.Cargo == '3'%}
+                        {{lista_C3.select_cargo}}
+                        {% elif usuario_logado.Cargo == '4'%}
+                        {{lista_C4.select_cargo}}
+                        {% elif usuario_logado.Cargo == '5'%}
+                        {{lista_C5.select_cargo}}
+                        {%endif%}
+                        </li>
+
+                    <li>
+                        <input type="submit" value="Cadastrar"></table>
+                    </li>
+                </ul>
+
+                
+            </form>
+    
+        </div>
+    </div>
+
+
+</div>
+
+{%endblock%}
+
+
+{%block info%}
+<div style="margin:10%; display: flex; flex-direction:column; justify-content:center; align-items: center; flex-wrap: wrap;">
+    <h1 style="font-size: 50px;">PAGINA NÃO ENCONTRADA</h1>
+    <h3 style="font-size: 25px; ">Você precisa estar logado para acessar o conteúdo dessa pagina</h3>
+    <a style="font-size: 20px; color:brown;" href="../login">Clique aqui para voltar logar na sua conta</a>
+    </div>
+{%endblock%}

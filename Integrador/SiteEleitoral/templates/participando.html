@@ -1,0 +1,164 @@
+{% extends 'corpo.html' %}
+{%load static%}
+
+
+
+{%block info1%}
+
+<div id="breadcrumb">
+  <p>SEFIV/<a>Paricipando</a></p>
+  </div>
+
+
+<div id ="listas_eleicoes">
+  <div class="filter_in">
+
+  </div><br>
+    <table border="1" class="table table-hover">
+          <tr>
+
+            <th><p>Nº</p></th>
+            
+              <th><p>Quem Criou</p></th>
+              <th><p>Titulo</p></th>
+              <th><p>Data Termino</p></th>
+              <th><p>Status</p></th>
+              <th><p>Link</p></th>
+          </tr>
+
+
+          {% for linhas in TheList %}
+            <tr>
+              
+                {%for colunas in linhas %}
+                  {% if colunas == 'Ativo'%}
+                    <td><a style="color:greenyellow">{{colunas}}</a></td>
+                  {% elif colunas == 'Inativo' %}
+                    <td><a style="color:rgb(255, 47, 47)">{{colunas}}</a></td>
+                  {% elif colunas == 'Link' %}
+                  <td><form action="{% url 'participando' %}" method="post">{%csrf_token%}
+                    {{ Urna.Form2}}
+                  <input type="text" id='local_urna' name='local_urna'value="{{linhas.0}}" style="display:none;">
+                  <input id='inputlista' type="submit" value="Acesse aqui"></form>
+                  </form>
+                  </td>
+
+                  {%else%}
+                  <td><p>{{colunas}}</p></td>
+                  {%endif%}
+                  
+                {% endfor%}
+                
+            </tr>
+
+          {% endfor %}
+      </table>
+      <div class="pagination-footer">
+        <span class="pagination-details"></span>
+        <div clas="pagination-buttons">
+          <form action ="{% url 'participando' %}" method="post">{% csrf_token%}
+            <input  class="pagination-footer" type="submit" name="Inicio" value="&laquo;">
+            <form>
+              <form action ="{% url 'participando' %}" method="post">{% csrf_token%}
+                <input class="pagination-footer"  type="submit" name="Anterior" value="&lsaquo;">
+                <form>
+                  <form action ="{% url 'participando' %}" method="post">{% csrf_token%}
+                    <input class="pagination-footer"  type="submit" name="Proximo" value="&rsaquo;">
+                    <form>
+                      <form action ="{% url 'participando' %}" method="post">{% csrf_token%}
+                        <input class="pagination-footer"  type="submit" name="Fim" value="&raquo;">
+                        <form>
+
+        
+        </div>
+      </div>
+    
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+      <script src="./assets/js/jquery-3.5.1.slim.min.js"></script>
+      <script src="./assets/js/popper.min.js"></script>
+      <script src="./assets/js/bootstrap.min.js"></script>
+</div>
+
+{%endblock%}
+
+
+
+{%block info%}
+<div id="breadcrumb">
+  <p>SEFIV/<a>Lista de Eleições</a></p>
+  </div>
+
+
+<div id ="listas_eleicoes">
+  <div class="filter_in">
+
+  </div><br>
+    <table border="1" class="table table-hover">
+          <tr>
+
+            <th><p>Nº</p></th>
+            
+              <th><p>Quem Criou</p></th>
+              <th><p>Titulo</p></th>
+              <th><p>Data Termino</p></th>
+              <th><p>Status</p></th>
+              <th><p>Link</p></th>
+          </tr>
+
+          {% for linhas in TheList %}
+            <tr>
+              
+                {%for colunas in linhas %}
+                  {% if colunas == 'Ativo'%}
+                    <td><a style="color:greenyellow">{{colunas}}</a></td>
+                  {% elif colunas == 'Inativo' %}
+                    <td><a style="color:rgb(255, 47, 47)">{{colunas}}</a></td>
+                  {% elif colunas == 'Link' %}
+                  <td><form action="{% url 'participando' %}" method="post">{%csrf_token%}
+                    {{ Urna.Form2}}
+                  <input type="text" id='local_urna' name='local_urna'value="{{linhas.0}}" style="display:none;">
+                  <input id='inputlista' type="submit" value="Acesse aqui"></form>
+                  </form>
+                  </td>
+
+                  {%else%}
+                  <td><p>{{colunas}}</p></td>
+                  {%endif%}
+                  
+                {% endfor%}
+                
+            </tr>
+
+          {% endfor %}
+      </table>
+      <div class="pagination-footer">
+        <span class="pagination-details"></span>
+        <div clas="pagination-buttons">
+          <form action ="{% url 'participando' %}" method="post">{% csrf_token%}
+            <input  class="pagination-footer" type="submit" name="Inicio" value="&laquo;">
+            <form>
+              <form action ="{% url 'participando' %}" method="post">{% csrf_token%}
+                <input class="pagination-footer"  type="submit" name="Anterior" value="&lsaquo;">
+                <form>
+                  <form action ="{% url 'participando' %}" method="post">{% csrf_token%}
+                    <input class="pagination-footer"  type="submit" name="Proximo" value="&rsaquo;">
+                    <form>
+                      <form action ="{% url 'participando' %}" method="post">{% csrf_token%}
+                        <input class="pagination-footer"  type="submit" name="Fim" value="&raquo;">
+                        <form>
+
+        
+        </div>
+      </div>
+    
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+      <script src="./assets/js/jquery-3.5.1.slim.min.js"></script>
+      <script src="./assets/js/popper.min.js"></script>
+      <script src="./assets/js/bootstrap.min.js"></script>
+</div>
+{%endblock%}
+

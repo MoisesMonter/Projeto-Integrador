@@ -1,0 +1,58 @@
+{%extends 'corpo.html'%}
+
+{% load static %}
+<link href="{% static 'css/config.css' %" rel="stylesheet">
+{%block info1%}
+
+<div id="breadcrumb">
+    <p href="../">SEFIV/<a href ='../configuração/'>Configurações/<a >Deletar Conta</a>
+    </div>
+
+
+
+<div id="configuracao"> 
+    <h1>APAGAR CONTA</h1>
+    <div style="align-items: center;">
+
+        <h2 style="margin-left:20px ;">Lamentamos estar partindo tão cedo {{usuario_logado.Nome}} 😢
+        <h3 style="margin-left:20px ;">Para então podermos apagar de forma segura<h5 style="margin-left:20px ;">Preencha Corrtamente os campos abaixo</h5><h3></h2>
+    </div>
+    <form action="{% url 'configdel' %}" method="post"  id="3" autocomplete="off">{%csrf_token%}
+        <input style="display:none" id="info1" name="info1" value="3">    
+    
+        <ul>
+            <li>
+                <label>Digite sua Senha<br>
+                <input style='align-items: center; color: rgb(0, 0, 0);'type="password" placeholder={{senha_usuario}}  id="password" name="password"></label>
+            </li><br>
+            <li>
+                <label>Você tem ceteza disso?<br>
+                    <input type="checkbox" style="border-radius: 50%;" id="checkbox" name="checkbox"></label>
+            </li>
+            <li><label>VocêApagar sua conta?<br>
+                <input  style="color:rgb(255, 255, 255);" type="submit" id="info1" name="info1" value="Apagar"></label><br></li>
+                
+        </ul><br>
+        
+    <div id="li_conf">
+            
+        <div style='align-items: center; background-color:aquamarine; width: 14ex; border-radius:6px; margin-bottom: 5px;'>   
+            <a href="../configuração/" style='align-items: center; color: rgb(0, 0, 0); padding-left: 8px;'>Editar Foto</a><br>
+        </div>
+
+        <div style='align-items: center; background-color:aliceblue; width: 14ex; border-radius:6px; margin-bottom: 5px;'>   
+            <a href="../alterarpassword/" style='align-items: center; color: rgb(0, 0, 0); padding-left: 5px;'>Editar Senha</a><br>
+        </div>
+        </div>
+    
+</div>
+
+
+{%endblock%}
+{%block info%}
+<div style="margin:10%; display: flex; flex-direction:column; justify-content:center; align-items: center; flex-wrap: wrap;">
+    <h1 style="font-size: 50px;">PAGINA NÃO ENCONTRADA</h1>
+    <h3 style="font-size: 25px; ">Você precisa estar logado para acessar o conteúdo dessa pagina</h3>
+    <a style="font-size: 20px; color:brown;" href="../login">Clique aqui para voltar logar na sua conta</a>
+    </div>
+{%endblock%}

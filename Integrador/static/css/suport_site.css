@@ -1,11 +1,4 @@
-div#breadcrumb P{
-    padding-top: 10px;
-    margin-left: 10px;
-    font-size: 15px;
-}
-div#breadcrumb a:hover{
-    cursor: pointer;
-}
+
 .main_suport {
     position:relative;
     margin-top: 100px;
@@ -14,7 +7,7 @@ div#breadcrumb a:hover{
     margin-right: 50px;
 
     justify-content: center;
-
+    box-shadow: 2px 2px 10px 5px rgb(0, 0, 0); 
     border:none;
     
 }
@@ -27,7 +20,14 @@ div#breadcrumb a:hover{
     background:#232323;
     border-radius: 10px;
 }
+.main_suport textarea{
 
+    resize: none;
+    margin-top: 10px;
+    gap:10px;
+    width: 500px;
+    height: auto;
+}
 .main_suport div#ambiente form{
     padding-left: 10px;
     font-size: 10px;
