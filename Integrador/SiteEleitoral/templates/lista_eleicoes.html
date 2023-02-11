@@ -11,18 +11,33 @@
 
 
 <div id ="listas_eleicoes">
+  <div style="display: flex; flex-direction: row;">
   <div class="filter_in">
     <form action ="{% url 'lista_eleicoes' %}" method="post">{% csrf_token%}
       {% if y  == None %}
         <input type="submit" value="Ativos" name="LA">
       {% elif y == 'Ativos' %}
-        <input type="submit" value="All" name="LA">
+        <input type="submit" value="Todos" name="LA">
       {% else %}
       <input type="submit" value="Ativos" name="LA">
       {% endif %}
       </form>
 
   </div><br>
+
+  <div class="filter_in">
+    <form action ="{% url 'lista_eleicoes' %}" method="post">{% csrf_token%}
+      {% if y  == None %}
+        <input type="submit" value="Maior" name="LD">
+      {% elif y == 'Ativos' %}
+        <input type="submit" value="Menor" name="LD">
+      {% else %}
+      <input type="submit" value="Maior" name="LD">
+      {% endif %}
+      </form>
+
+  </div><br>
+  </div>
     <table border="1" class="table table-hover">
           <tr>
 
@@ -109,12 +124,13 @@
       {% if y  == None %}
         <input type="submit" value="Ativos" name="LA">
       {% elif y == 'Ativos' %}
-        <input type="submit" value="All" name="LA">
+        <input type="submit" value="Todos" name="LA">
       {% else %}
       <input type="submit" value="Ativos" name="LA">
       {% endif %}
       </form>
   </div><br>
+  
     <table border="1" class="table table-hover">
           <tr>
 

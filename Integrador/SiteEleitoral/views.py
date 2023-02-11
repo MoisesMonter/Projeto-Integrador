@@ -91,6 +91,47 @@ def Register(request):
             messages.success(request,"Erro de Autenticação no Formulário")
             return render(request,'register.html',{'x': False,'form':form,'messagem':0})
 
+def Reactive(request):
+    form = FormLogin(request.POST)
+    if str(request.user) != 'AnonymousUser':
+        return render(request,"reactive.html",{'x':True,"form":form})
+    else:
+        if request.method == "GET":
+            return render(request,"reactive.html",{"form":form})
+        if request.method == 'POST':
+            username = request.POST.get('Id_Academico')
+            password = request.POST.get('Senha')  
+            try:
+                user = User.objects.get(username = username)
+                if user.is_active == 1:
+                    messages.success(request,"Esta conta já está habilitada!")
+                    return render(request,"reactive.html",{"form":form,'messagem':0})
+                else:
+                    user.is_active = 1 
+                    user.save()
+                    logar = authenticate(request, username = username,password = password)
+                    if logar is not None:
+                        login_django(request,logar)
+                        messages.success(request,"Seja bem vindo de volta")
+                        try:
+                            ações_Usuarios(usuario_logado.Id_Academico,'sim').limpar_memoria(request,'all')
+                        except:
+                            pass    
+                        usuario_logado= Usuario.objects.get(Id_Academico = str(request.user))
+                        ações_Usuarios(usuario_logado.Id_Academico,'sim').limpar_memoria(request,'all')
+                        return redirect('home')
+                    else:
+                        user.is_active = 0
+                        user.save()
+                        messages.success(request,"Erro de Autenticação do Usuário")
+                        return render(request,"reactive.html",{"form":form,'messagem':0})
+            except:
+                messages.success(request,"Erro de Autenticação do Usuário")
+                return render(request,"reactive.html",{"form":form,'messagem':0})
+            
+
+
+
 
 
 def Login(request):
@@ -108,16 +149,21 @@ def Login(request):
             password = request.POST.get('Senha')  
             user = authenticate(request, username = username,password = password)
             if user is not None:
-                login_django(request,user)
-                usuario_logado= Usuario.objects.get(Id_Academico = str(request.user))
-                try:
+                is_active = User.objects.get(username =username)
+                if int(is_active.is_active) == int(1):
+                    login_django(request,user)
+                    usuario_logado= Usuario.objects.get(Id_Academico = str(request.user))
+                    try:
+                        ações_Usuarios(usuario_logado.Id_Academico,'sim').limpar_memoria(request,'all')
+                    except:
+                        pass    
+                    usuario_logado= Usuario.objects.get(Id_Academico = str(request.user))
                     ações_Usuarios(usuario_logado.Id_Academico,'sim').limpar_memoria(request,'all')
-                except:
-                    pass    
-                usuario_logado= Usuario.objects.get(Id_Academico = str(request.user))
-                ações_Usuarios(usuario_logado.Id_Academico,'sim').limpar_memoria(request,'all')
-                return redirect('home')
-                return render(request,"home.html",{'x':True,'usuario_logado':usuario_logado}),
+                    return redirect('home')
+                    return render(request,"home.html",{'x':True,'usuario_logado':usuario_logado}),
+                else:
+                    messages.success(request,"Erro de Autenticação do Usuário")
+                    return render(request,"login.html",{"form":form,'messagem':0})
             else:
                 messages.success(request,"Erro de Autenticação do Usuário")
                 return render(request,"login.html",{"form":form,'messagem':0})
@@ -176,18 +222,26 @@ def ListaEleicoes(request):
         info = ações_Usuarios(str(request.user),'sim').global_list(request)
         enviar_para_Urna = Formularios_Para_Votar(request.POST)
         y = str(request.POST.get('LA'))
-
+        z = str(request.POST.get('LD'))
+        print('LD')
         if y == None:
             info,Ativos = ações_Usuarios(str(request.user),'sim').filtered_list(request,info,None)
+            if z == None:
+                pass
+            if z != None:
+                info = [info[x] for x in range(len(info)-1,-1,-1)]
         if y != None:
-            
+            if z == None:
+                pass
+            if z != None:
+                info = [info[x] for x in range(len(info)-1,-1,-1)]
             info,Ativos = ações_Usuarios(str(request.user),'sim').filtered_list(request,info,y)
             if str(y) == 'Ativos':
                 ações_Usuarios(str(request.user),'sim').limpar_memoria(request,'lista')
-                return render(request,"lista_eleicoes.html",{'x':True,'y':y,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna})
-            if str(y) == 'All':
+                return render(request,"lista_eleicoes.html",{'x':True,'y':y,'z':z,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna})
+            if str(y) == 'Todos':
                 ações_Usuarios(str(request.user),'sim').limpar_memoria(request,'lista')
-                return render(request,"lista_eleicoes.html",{'x':True,'y':y,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna})
+                return render(request,"lista_eleicoes.html",{'x':True,'y':y,'z':z,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna})
 
         newinfo=ações_Usuarios(str(request.user),'sim').pagination_list(request,info,False,False,False,False)
         enviar_para_Urna = Formularios_Para_Votar(request.POST)
@@ -731,8 +785,10 @@ def configdel(request):
                         messages.success(request,"Conta apagada")
                         mensagem = 1
                         Super_User = User.objects.get(username= str(request.user))
-                        usuario_logado.delete()
-                        Super_User.delete()
+                        #usuario_logado.delete()
+                        #Super_User.delete()
+                        Super_User.is_active = 0
+                        Super_User.save()
                         return render(request,"home.html",{'x':False,'messagem':mensagem})
                         
                     else:
@@ -976,6 +1032,8 @@ class ações_Usuarios():
             except:
                 
                 info.append([location['N_Eleicao'],usuario.Nome,info_cargo[int(location['Cargo'])],location[ 'Titulo'],location['End_Data'],Ativo,'Link'])
+
+        
         return info
 
 

@@ -5,43 +5,43 @@
 
 
 <div id="breadcrumb">
-    <p>SEFIV/<a>Login</a></p>
+    <p>SEFIV/<a>Reativar Conta</a></p>
 </div>
 
-<div id="user_login">
-    <div class="login_main" >
+<div id="user_register">
+    <div class="register_main" >
         <div class="cabeçalho">
             
             <h1 >SISTEMA ELEITORAL & VOTAÇÃO DO IFRN</h1>
 
             <img  src="{% static 'img/login/logo.svg'%}"/>
-
-            <p>Acesse sua Conta aqui<br>
-                Preencha suas informações a baixo</p>
+            <p>Recupere sua conta<br>
+            Preencha suas informações a baixo</p>
         </div>
-        <div class ='login_division'>
+        <div class ='register_division'>
             
-            <div class="login_user_info">
-                <form action="{% url 'login' %}" method="post" >{%csrf_token%}
-
-                        <ul >
+            <div class="register_user_info">
+                <form action="{% url 'reactive' %}" method="post">{%csrf_token%}
+                        <ul>
                             <li>
                                 {{form.Id_Academico.label}}<br>
-                                {{form.Id_Academico}}<br>
+                                {{form.Id_Academico}}
                             </li>
                             <li>
                                 {{form.Senha.label}}<br>
                                 {{form.Senha}}
-                            </li><br>                 
-                            <table><input type="submit" value="Log In"></table>  
+                            </li><br>         
+     
+                            <table><input type="submit" value="Reativar"></table>
                         </ul>
+
                     
                 </form>
             </div>
-        <div>
-            <div><p>Não se cadastrou?</p><a href="../register" style="color:rgb(102, 233, 69)">Cadastrar</a></div><br>
-            <div><a href="../reactive" style="color:rgb(151, 68, 32)">Reative sua conta Aqui</a></div>
-        </div>
+            <div>
+                <div><p>Voltar para Login?</p><a href="../login" style="color:rgb(102, 233, 69)">Voltar ao Log In</a></div>
+                <div><p>Ainda não há conta?</p><a href="../register" style="color:rgb(102, 233, 69)">Cadastrar aqui</a></div>
+            </div>  
 
 
 
@@ -61,9 +61,3 @@
     <a style="font-size: 20px; color:brown;" href="../home">Clique aqui para voltar a Home</a>
     </div>
 {%endblock%}
-
-
-
-
-
-
