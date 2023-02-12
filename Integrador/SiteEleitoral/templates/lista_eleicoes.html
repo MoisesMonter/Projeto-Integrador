@@ -27,13 +27,7 @@
 
   <div class="filter_in">
     <form action ="{% url 'lista_eleicoes' %}" method="post">{% csrf_token%}
-      {% if y  == None %}
-        <input type="submit" value="Maior" name="LD">
-      {% elif y == 'Ativos' %}
-        <input type="submit" value="Menor" name="LD">
-      {% else %}
-      <input type="submit" value="Maior" name="LD">
-      {% endif %}
+      <input type="submit" value="Inverter Lista" name="LD">
       </form>
 
   </div><br>

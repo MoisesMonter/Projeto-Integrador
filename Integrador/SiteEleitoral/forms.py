@@ -71,7 +71,3 @@ class Formulario_part2(forms.Form):
 class Formularios_Para_Votar(forms.Form):
     Form1 = forms.CharField(label='Titulo',max_length=30,required=True,widget=forms.TextInput(attrs={'class':'form-control' , 'autocomplete': 'on', 'placeholder':'Titulo da Eleição', 'value':'1','style':'display:None;'}))
     Form2 = forms.CharField(label='Titulo',max_length=30,required=True,widget=forms.TextInput(attrs={'class':'form-control' , 'autocomplete': 'on', 'placeholder':'Titulo da Eleição', 'value':'2','style':'display:None;'}))
-
-
-
-

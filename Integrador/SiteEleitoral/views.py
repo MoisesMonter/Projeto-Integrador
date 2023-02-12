@@ -218,30 +218,34 @@ def ListaEleicoes(request):
                 Urna(request)
         return render(request,"lista_eleicoes.html",{'x':False,'TheList':newinfo,'Urna':enviar_para_Urna})
     else:
+
+        if request.POST.get('LD') != None:
+
+            ações_Usuarios(str(request.user),'sim').limpar_memoria(request,'lista')
+            ações_Usuarios(str(request.user),'sim').alternar_listagem(True)
+            print('\n\n\n\n',str(request.POST.get('LD')),'\n\n\n\n')
+        
         usuario_logado= Usuario.objects.get(Id_Academico = str(request.user))
-        info = ações_Usuarios(str(request.user),'sim').global_list(request)
+        info = ações_Usuarios(str(request.user),'sim').global_list(request,ações_Usuarios(str(request.user),'sim').alternar_listagem(False))
+        '''if ações_Usuarios(str(request.user),'sim').alternar_listagem(False) == 'True':
+           print("CHEGOU AQUI!!!!!\n\n\n\n")
+           info = [numb for numb in reversed(info)]
+        else:
+            pass'''
         enviar_para_Urna = Formularios_Para_Votar(request.POST)
         y = str(request.POST.get('LA'))
-        z = str(request.POST.get('LD'))
-        print('LD')
+
         if y == None:
             info,Ativos = ações_Usuarios(str(request.user),'sim').filtered_list(request,info,None)
-            if z == None:
-                pass
-            if z != None:
-                info = [info[x] for x in range(len(info)-1,-1,-1)]
         if y != None:
-            if z == None:
-                pass
-            if z != None:
-                info = [info[x] for x in range(len(info)-1,-1,-1)]
+            
             info,Ativos = ações_Usuarios(str(request.user),'sim').filtered_list(request,info,y)
             if str(y) == 'Ativos':
                 ações_Usuarios(str(request.user),'sim').limpar_memoria(request,'lista')
-                return render(request,"lista_eleicoes.html",{'x':True,'y':y,'z':z,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna})
+                return render(request,"lista_eleicoes.html",{'x':True,'y':y,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna})
             if str(y) == 'Todos':
                 ações_Usuarios(str(request.user),'sim').limpar_memoria(request,'lista')
-                return render(request,"lista_eleicoes.html",{'x':True,'y':y,'z':z,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna})
+                return render(request,"lista_eleicoes.html",{'x':True,'y':y,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna})
 
         newinfo=ações_Usuarios(str(request.user),'sim').pagination_list(request,info,False,False,False,False)
         enviar_para_Urna = Formularios_Para_Votar(request.POST)
@@ -863,8 +867,10 @@ class ações_Usuarios():
     gerando_informacoes_candidatura = {}
     local_atual_eleicao = {}
     pagination={}
+    listagem={}
     Filter={}
     Voto ={}
+
     def __init__(self,login,pagina_atual):
         global gerando_lista_candidatos
         global gerando_informacoes_candidatura
@@ -872,8 +878,11 @@ class ações_Usuarios():
         global pagination
         global Voto
         global Filter
+        global listagem
         self.login = login
         self.pagina_atual = pagina_atual
+
+
 
     def limpar_memoria(self,request,select):
         if select == "apagar_lista_candiatos":
@@ -989,7 +998,7 @@ class ações_Usuarios():
                 #print('\n\n\n\n',info)
         return info
 
-    def global_list(self,request):
+    def global_list(self,request,retorno):
         try:
             usuario_logado = Usuario.objects.get(Id_Academico = self.login)
         except:
@@ -1018,7 +1027,7 @@ class ações_Usuarios():
                     info2 = Election.objects.get(N_Eleicao = location['N_Eleicao'])
                     info2.Ativo= 0
                     info2.save()
-            print(info_cargo[int(location['Cargo'])],'cargo desse usuario') #bolsistas '6','9', '11','12','14','15'   falta 8 docente e 9 bolsista
+            #print(info_cargo[int(location['Cargo'])],'cargo desse usuario') #bolsistas '6','9', '11','12','14','15'   falta 8 docente e 9 bolsista
             try:
                 if (location['Cargo'] == '1' or  
                 (str(usuario_logado.Cargo) == '1' and (location['Cargo'] == '1' or location['Cargo'] == '2' or location['Cargo'] == '7' or location['Cargo'] == '8' or location['Cargo'] == '10' or location['Cargo'] == '12' or location['Cargo'] == '14' or location['Cargo'] == '16')) or 
@@ -1032,20 +1041,32 @@ class ações_Usuarios():
             except:
                 
                 info.append([location['N_Eleicao'],usuario.Nome,info_cargo[int(location['Cargo'])],location[ 'Titulo'],location['End_Data'],Ativo,'Link'])
+        if retorno == False:
+            return [numb for numb in reversed(info)] 
+        else:
+            return info
 
-        
-        return info
+    def alternar_listagem(self,Modify):
+        if self.login not in self.listagem:
+            self.listagem[self.login]=False
+        if Modify == True:
+            if self.listagem[self.login] == False:
+                self.listagem[self.login]=True
+            else:
+                self.listagem[self.login]=False
+        else:
+            return self.listagem[self.login]
 
 
     def filtered_list(self,request,lista,botao):
         if self.login not in self.Filter:
-            self.Filter[self.login] = 'All'
+            self.Filter[self.login] = 'Todos'
         if botao == 'Ativos' :
             self.Filter[self.login] = 'Ativos'
             filtered_lista = [filter for filter in lista if filter[5] =='Ativo']
             lista = filtered_lista
-        elif botao == 'All' :
-            self.Filter[self.login] = 'All'
+        elif botao == 'Todos' :
+            self.Filter[self.login] = 'Todos'
             #self.pagination_list(self,request,lista,True,False,False,False)
         else:
             if self.Filter[self.login] == 'Ativos':
