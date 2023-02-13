@@ -6,20 +6,29 @@
 {%block info1%}
 
 <div id="breadcrumb">
-  <p>SEFIV/<a>Paricipando</a></p>
+  <p>SEFIV/<a>Participadando</a></p>
   </div>
 
 
 <div id ="listas_eleicoes">
+  
+  <div style="display: flex; flex-direction: row; justify-content: flex-end;">
+  <div style=" justify-content: flex-end;">
   <div class="filter_in">
-
+    <form action ="{% url 'participando' %}" method="post">{% csrf_token%}
+      {{ buscar }}
+      <input type="submit" value="buscar" name="BR">
+      </form>
   </div><br>
+  </div>
+  </div>
     <table border="1" class="table table-hover">
           <tr>
 
             <th><p>Nº</p></th>
             
               <th><p>Quem Criou</p></th>
+              <th><p>Quem Pode votar</p></th>
               <th><p>Titulo</p></th>
               <th><p>Data Termino</p></th>
               <th><p>Status</p></th>
@@ -81,6 +90,13 @@
       <script src="./assets/js/bootstrap.min.js"></script>
 </div>
 
+
+<script>
+function funcao1()
+{
+alert("Eu sou um alert!");
+}
+</script> 
 {%endblock%}
 
 
@@ -89,12 +105,23 @@
 <div id="breadcrumb">
   <p>SEFIV/<a>Lista de Eleições</a></p>
   </div>
-
+  <div>
+    <h2 style="font-size:20px;color:red">Trial Version</h2>
+  </div>
 
 <div id ="listas_eleicoes">
   <div class="filter_in">
-
+    <form action ="{% url 'participando' %}" method="post">{% csrf_token%}
+      {% if y  == None %}
+        <input type="submit" value="Ativos" name="LA">
+      {% elif y == 'Ativos' %}
+        <input type="submit" value="Todos" name="LA">
+      {% else %}
+      <input type="submit" value="Ativos" name="LA">
+      {% endif %}
+      </form>
   </div><br>
+  
     <table border="1" class="table table-hover">
           <tr>
 

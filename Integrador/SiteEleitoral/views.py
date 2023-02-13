@@ -192,7 +192,7 @@ def ListaEleicoes(request):
     x =str(request.user) == 'AnonymousUser'
     if x:
 
-        info = ações_Usuarios(str(request.user),'sim').global_list(request)
+        info = ações_Usuarios(str(request.user),'sim').global_list(request,False)
         #
         newinfo=ações_Usuarios(str(request.user),'sim').pagination_list(request,info,False,False,False,False)
 
@@ -206,7 +206,7 @@ def ListaEleicoes(request):
         #print(aux2)        
         if request.method == 'GET':
             
-            return render(request,"lista_eleicoes.html",{'x':False,'TheList':newinfo,'Urna':enviar_para_Urna})
+            return render(request,"lista_eleicoes.html",{'x':False,'TheList':newinfo,'Urna':enviar_para_Urna,'buscar':busca_rapida})
         if request.method == 'POST':
             return redirect('Urna')
             return redirect('Urna')
@@ -285,8 +285,8 @@ def ListaEleicoes(request):
                         ações_Usuarios(str(request.user),'sim').global_list_urna(request,x,'lista_eleicoes',True)
                         return redirect('Urna')
                     else:
-                        ações_Usuarios(str(request.user),'sim').limpar_memoria(request,'lista')   
-                        return render(request,"lista_eleicoes.html",{'x':True,'y':y,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna,'buscar':busca_rapida}) 
+                        if request.POST.get('Inicio') == None and request.POST.get('Anterior') == None and request.POST.get('Proximo') == None and request.POST.get('Fim') == None:
+                            return render(request,"lista_eleicoes.html",{'x':True,'y':y,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna,'buscar':busca_rapida}) 
                 else:
                     new=[]
                     for listagem in info:
@@ -294,19 +294,24 @@ def ListaEleicoes(request):
                             new.append(listagem)
                         else:
                             pass
+                    
                     ações_Usuarios(str(request.user),'sim').limpar_memoria(request,'lista') 
-                    if len(new)-1 <1:
-                        return render(request,"lista_eleicoes.html",{'x':True,'y':y,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna,'buscar':busca_rapida}) 
+                    if len(new) <1:
+                        if request.POST.get('Inicio') == None and request.POST.get('Anterior') == None and request.POST.get('Proximo') == None and request.POST.get('Fim') == None:
+                            return render(request,"lista_eleicoes.html",{'x':True,'y':y,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna,'buscar':busca_rapida}) 
                     else:
-                        pass
+                        info = new 
+                        if request.POST.get('Inicio') == None and request.POST.get('Anterior') == None and request.POST.get('Proximo') == None and request.POST.get('Fim') == None:
+                            return render(request,"lista_eleicoes.html",{'x':True,'y':y,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna,'buscar':busca_rapida}) 
                 
-                    info = new 
+                    
             
-            '''if request.POST.get('local_urna') != None:
+            if request.POST.get('local_urna') != None:
                 x = request.POST.get('local_urna')
                 print(request.POST.get('Fim'))
                 ações_Usuarios(str(request.user),'sim').global_list_urna(request,x,'lista_eleicoes',True)
-                return redirect('Urna')'''
+                return redirect('Urna')
+            print(len(info),'simsimsim')
             if len(info)>5:
                 if request.POST.get('Inicio') != None:
                     newinfo=ações_Usuarios(str(request.user),'sim').pagination_list(request,info,True,False,False,False)
@@ -342,17 +347,45 @@ def participando(request):
         
         if request.method == 'GET':
 
-            return render(request,"participando.html",{'x':True,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna})
+            return render(request,"participando.html",{'x':True,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna,'buscar':busca_rapida})
         
             
         if request.method =='POST':
-
+            if busca_rapida(request.POST).is_valid():
+                busca = request.POST.get('busca')
+                print('\n\n\n\n',busca,'\n\n\n\n')
+                if busca == None or len(busca)<1:
+                    if request.POST.get('local_urna') != None:
+                        x = request.POST.get('local_urna')
+                        print(request.POST.get('Fim'))
+                        ações_Usuarios(str(request.user),'sim').global_list_urna(request,x,'lista_eleicoes',True)
+                        return redirect('Urna')
+                    else:
+                        if request.POST.get('Inicio') == None and request.POST.get('Anterior') == None and request.POST.get('Proximo') == None and request.POST.get('Fim') == None:
+                            return render(request,"participando.html",{'x':True,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna,'buscar':busca_rapida}) 
+                else:
+                    new=[]
+                    for listagem in info:
+                        if str(busca) in  str(listagem[0]):
+                            new.append(listagem)
+                        else:
+                            pass
+                    ações_Usuarios(str(request.user),'sim').limpar_memoria(request,'lista') 
+                    if len(new) <1:
+                        if request.POST.get('Inicio') == None and request.POST.get('Anterior') == None and request.POST.get('Proximo') == None and request.POST.get('Fim') == None:
+                            return render(request,"participando.html",{'x':True,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna,'buscar':busca_rapida}) 
+                    else:
+                        if request.POST.get('Inicio') == None and request.POST.get('Anterior') == None and request.POST.get('Proximo') == None and request.POST.get('Fim') == None:
+                            info = new 
+                            return render(request,"participando.html",{'x':True,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna,'buscar':busca_rapida}) 
+                
+                    
             
-            if request.POST.get('local_urna') != None:
+            '''if request.POST.get('local_urna') != None:
                 x = request.POST.get('local_urna')
                 print(request.POST.get('Fim'))
                 ações_Usuarios(str(request.user),'sim').global_list_urna(request,x,'lista_eleicoes',True)
-                return redirect('Urna')
+                return redirect('Urna')'''
             if len(info)>5:
                 if request.POST.get('Inicio') != None:
                     newinfo=ações_Usuarios(str(request.user),'sim').pagination_list(request,info,True,False,False,False)
@@ -367,10 +400,10 @@ def participando(request):
                     newinfo=ações_Usuarios(str(request.user),'sim').pagination_list(request,info,False,False,False,True)
                     print(info)
             else:
-                return render(request,"participando.html",{'x':True,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna})
-            return render(request,"participando.html",{'x':True,'usuario_logado':usuario_logado,'TheList':newinfo,'Urna':enviar_para_Urna})
+                return render(request,"participando.html",{'x':True,'usuario_logado':usuario_logado,'TheList':info[0:5],'Urna':enviar_para_Urna,'buscar':busca_rapida})
+            return render(request,"participando.html",{'x':True,'usuario_logado':usuario_logado,'TheList':newinfo,'Urna':enviar_para_Urna,'buscar':busca_rapida})
             
-        return render(request,"participando.html",{'x':True,'usuario_logado':usuario_logado,'TheList':newinfo,'Urna':enviar_para_Urna})
+        return render(request,"participando.html",{'x':True,'usuario_logado':usuario_logado,'TheList':newinfo,'Urna':enviar_para_Urna,'buscar':busca_rapida})
  
 
 def Urna(request):
@@ -956,11 +989,16 @@ class ações_Usuarios():
                 self.local_atual_eleicao.pop(self.login)
             except:
                 pass
+            try:
+                self.listagem.pop(self.login)
+            except:
+                pass
         if select == 'lista':
             try:
                 self.pagination.pop(self.login)
             except:
                 pass
+
     def global_info(self,request,info,info_local,manipulacao,login_end):
         if self.login not in self.gerando_lista_candidatos:
             self.gerando_lista_candidatos[self.login]=[]
@@ -1038,7 +1076,10 @@ class ações_Usuarios():
                         info2.save()
                 info.append([location['N_Eleicao'],usuario.Nome,location[ 'Titulo'],location['End_Data'],Ativo,'Link'])
                 #print('\n\n\n\n',info)
-        return info
+        return [newinfo for newinfo in reversed(info)]
+    
+
+    
 
     def global_list(self,request,retorno):
         try:
