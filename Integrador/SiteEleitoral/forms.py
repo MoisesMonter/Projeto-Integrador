@@ -66,6 +66,10 @@ class Formulario_part1(forms.Form):
 class Formulario_part2(forms.Form):
     Gerando_Candidato = forms.CharField(label='Gerar Candidato',max_length=30,required=True,widget=forms.TextInput(attrs={'class':'form-control' , 'autocomplete': 'on', 'placeholder':'Nome do Candidato'}))
 
+    
+class busca_rapida(forms.Form):
+   busca = forms.CharField(label='Buscar rápida',required=False,max_length=30,widget=forms.TextInput(attrs={'class':'form-control' , 'autocomplete': 'off', 'placeholder':'Nº da eleição...'}))
+
 
 
 class Formularios_Para_Votar(forms.Form):

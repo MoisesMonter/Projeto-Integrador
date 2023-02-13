@@ -11,7 +11,9 @@
 
 
 <div id ="listas_eleicoes">
-  <div style="display: flex; flex-direction: row;">
+  
+  <div style="display: flex; flex-direction: row; justify-content: space-between;">
+    <div style="display: flex; flex-direction: row; justify-content: flex-start;">
   <div class="filter_in">
     <form action ="{% url 'lista_eleicoes' %}" method="post">{% csrf_token%}
       {% if y  == None %}
@@ -31,6 +33,15 @@
       </form>
 
   </div><br>
+  </div>
+  <div style=" justify-content: flex-end;">
+  <div class="filter_in">
+    <form action ="{% url 'lista_eleicoes' %}" method="post">{% csrf_token%}
+      {{ buscar }}
+      <input type="submit" value="buscar" name="BR">
+      </form>
+  </div><br>
+  </div>
   </div>
     <table border="1" class="table table-hover">
           <tr>
@@ -100,6 +111,13 @@
       <script src="./assets/js/bootstrap.min.js"></script>
 </div>
 
+
+<script>
+function funcao1()
+{
+alert("Eu sou um alert!");
+}
+</script> 
 {%endblock%}
 
 
